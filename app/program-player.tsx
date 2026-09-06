@@ -467,7 +467,10 @@ export default function ProgramPlayer({
           </a>
         </p>
         <p className="copyright">
-          © {new Date().getFullYear()} Morten Damsgaard
+          © {new Date().getFullYear()} Morten Damsgaard{' · '}
+          <a href="mailto:morten.damsgaard@live.com">
+            morten.damsgaard@live.com
+          </a>
         </p>
       </footer>
     </main>
