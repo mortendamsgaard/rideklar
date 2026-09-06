@@ -95,7 +95,8 @@ void test('the first screen fits an iPhone 14 viewport without scrolling', () =>
     px('--h-arena') +
     px('--h-text') +
     px('--h-control-row') * 2 +
-    px('--h-gaps');
+    px('--h-gaps') +
+    px('--h-render-slack');
   const target = px('--vp-target');
   assert.equal(target, 664, 'iPhone 14 Safari visible viewport');
   assert.ok(

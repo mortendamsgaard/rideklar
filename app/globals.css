@@ -23,10 +23,13 @@ html {
   --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
   --h-header: 50px;
-  --h-arena: 400px;
+  --h-arena: 390px;
   --h-text: 88px;
   --h-control-row: 44px;
   --h-gaps: 32px;
+  /* Token arithmetic runs ~8px optimistic against the rendered box model
+     (borders, line-height rounding, the progress fill). Measured, not guessed. */
+  --h-render-slack: 10px;
   --vp-target: 664px;
 }
 
