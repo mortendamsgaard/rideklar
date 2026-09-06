@@ -508,6 +508,81 @@ footer a {
   text-decoration: underline;
 }
 
+@media (min-width: 900px) {
+  :root {
+    --h-arena: 520px;
+  }
+
+  .workspace {
+    display: grid;
+    grid-template-columns: auto minmax(320px, 460px);
+    gap: 10px 32px;
+    justify-content: center;
+    align-items: start;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+
+  .stage,
+  .controls-primary,
+  .controls-secondary,
+  .route-key {
+    grid-column: 1;
+  }
+
+  .exercise-head,
+  .detail,
+  .program {
+    grid-column: 2;
+  }
+
+  .stage,
+  .exercise-head,
+  .controls-primary,
+  .controls-secondary,
+  .description,
+  .program-list,
+  .route-key {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .exercise-head h2 {
+    font-size: 27px;
+  }
+
+  .description {
+    font-size: 16px;
+    margin-left: 0;
+    margin-right: 0;
+    -webkit-line-clamp: none;
+    display: block;
+    overflow: visible;
+  }
+
+  .tip,
+  .size-note,
+  .schematic,
+  .next-preview {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .program-list {
+    max-height: 320px;
+    overflow-y: auto;
+  }
+
+  .header-arena {
+    font-size: 13px;
+  }
+
+  .program-select {
+    max-width: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     scroll-behavior: auto !important;

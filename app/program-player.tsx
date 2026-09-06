@@ -401,29 +401,29 @@ export default function ProgramPlayer({
           </div>
           <p>{program.legendNote}</p>
         </div>
+        <section className="program">
+          <div className="program-heading">
+            <h2>Hele programmet</h2>
+            <span>Vælg en øvelse og find din vej</span>
+          </div>
+          <div className="program-list">
+            {rows.map((r, i) => (
+              <button
+                key={r.id}
+                disabled={suspended}
+                className={i === index ? 'program-row current' : 'program-row'}
+                aria-current={i === index ? 'step' : undefined}
+                onClick={() => choose(i)}
+              >
+                <span className="row-number">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="row-title">{r.title}</span>
+              </button>
+            ))}
+          </div>
+        </section>
       </div>
-      <section className="program">
-        <div className="program-heading">
-          <h2>Hele programmet</h2>
-          <span>Vælg en øvelse og find din vej</span>
-        </div>
-        <div className="program-list">
-          {rows.map((r, i) => (
-            <button
-              key={r.id}
-              disabled={suspended}
-              className={i === index ? 'program-row current' : 'program-row'}
-              aria-current={i === index ? 'step' : undefined}
-              onClick={() => choose(i)}
-            >
-              <span className="row-number">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <span className="row-title">{r.title}</span>
-            </button>
-          ))}
-        </div>
-      </section>
       <footer>
         <p className="footer-meta">
           {program.title} · {program.audience} · {rows.length} øvelser ·{' '}
