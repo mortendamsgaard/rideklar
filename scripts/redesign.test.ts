@@ -146,12 +146,28 @@ void test('player markup exposes the new layout hooks', () => {
 void test('no sage-palette colours remain in the stylesheet', () => {
   const css = read('app/globals.css');
   const allowed = new Set([
-    '#faf4e9', '#f2e4cc', '#c98a2e', '#b5722a', '#8f5920', '#3a2c1d',
-    '#fffdf8', '#e8dcc6', '#e2d0b0', '#6b5741', '#7a5a30', '#a07a44',
-    '#f6ecd9', '#d8c39c', '#a58a5e', '#fff', '#ffffff',
+    '#faf4e9',
+    '#f2e4cc',
+    '#c98a2e',
+    '#b5722a',
+    '#8f5920',
+    '#3a2c1d',
+    '#fffdf8',
+    '#e8dcc6',
+    '#e2d0b0',
+    '#6b5741',
+    '#7a5a30',
+    '#a07a44',
+    '#f6ecd9',
+    '#d8c39c',
+    '#a58a5e',
+    '#fff',
+    '#ffffff',
   ]);
   const found = [
-    ...new Set((css.match(/#[0-9a-fA-F]{3,8}/g) ?? []).map((h) => h.toLowerCase())),
+    ...new Set(
+      (css.match(/#[0-9a-fA-F]{3,8}/g) ?? []).map((h) => h.toLowerCase()),
+    ),
   ];
   const stray = found.filter((h) => !allowed.has(h));
   assert.deepEqual(stray, [], `unmigrated colours: ${stray.join(', ')}`);

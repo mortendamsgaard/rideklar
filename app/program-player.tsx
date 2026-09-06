@@ -131,7 +131,9 @@ export default function ProgramPlayer({
     if (!el || !list || list.scrollHeight <= list.clientHeight) return;
     list.scrollTo({
       top: el.offsetTop - list.clientHeight / 2 + el.clientHeight / 2,
-      behavior: 'smooth',
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? 'auto'
+        : 'smooth',
     });
   }, [index]);
   function play(full: boolean) {
@@ -288,7 +290,6 @@ export default function ProgramPlayer({
                 />
               </g>
             </svg>
-            <span className="dimension">{arena.width} m</span>
           </div>
         </section>
         <div className="exercise-head" aria-live="polite">
@@ -310,7 +311,13 @@ export default function ProgramPlayer({
             <span
               className="play-fill"
               aria-hidden="true"
-              style={{ width: `${all ? fraction * 100 : 0}%` }}
+              style={{
+                width: `${
+                  all
+                    ? ((index + fraction) / rows.length) * 100
+                    : fraction * 100
+                }%`,
+              }}
             />
             <span className="play-label">
               {playing && all ? <Pause size={17} /> : <Play size={17} />}

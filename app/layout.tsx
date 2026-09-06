@@ -20,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="da">
-      <body className={fraunces.variable}>
-        {children}
-      </body>
+      <body className={fraunces.variable}>{children}</body>
     </html>
   );
 }
