@@ -37,3 +37,31 @@ void test('no Tailwind or shadcn layer remains', () => {
     assert.ok(!(dead in pkg.devDependencies), `${dead} should be gone`);
   }
 });
+
+void test('stable-warmth palette and display font are defined', () => {
+  const css = read('app/globals.css');
+  const tokens: Record<string, string> = {
+    '--sand': '#faf4e9',
+    '--arena-fill': '#f2e4cc',
+    '--gold': '#c98a2e',
+    '--leather': '#b5722a',
+    '--ink': '#3a2c1d',
+    '--surface': '#fffdf8',
+    '--muted': '#6b5741',
+  };
+  for (const [name, value] of Object.entries(tokens)) {
+    assert.match(css, new RegExp(`${name}:\\s*${value}`), `${name} should be ${value}`);
+  }
+  assert.doesNotMatch(css, /#f4f6f5|#176d5e/, 'old sage palette should be gone');
+
+  const layout = read('app/layout.tsx');
+  assert.match(layout, /Fraunces/, 'layout should load Fraunces');
+  assert.doesNotMatch(layout, /Geist/, 'Geist should be gone');
+});
+
+void test('route colours are untouched', () => {
+  const style = read('app/ride-style.ts');
+  for (const hex of ['#25813b', '#2365c7', '#c63838', '#62717c']) {
+    assert.match(style, new RegExp(hex, 'i'), `${hex} must remain`);
+  }
+});

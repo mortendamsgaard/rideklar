@@ -1,37 +1,26 @@
 html {
   -webkit-text-size-adjust: 100%;
 }
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-/* ── App palette — overrides the vendor tokens above ── */
+/* ── App palette ── */
 :root {
-  --background: #f4f6f5;
-  --foreground: #203e36;
-  --primary: #176d5e;
-  --primary-foreground: #fff;
-  --card: #fff;
-  --border: #dce3df;
-  --muted: #edf2ef;
-  --muted-foreground: #64796f;
-  --accent: #e4efea;
-  --accent-foreground: #203e36;
-  --ring: #187769;
-  --radius: 0.8rem;
-}
-.dark {
-  --background: #102b23;
-  --foreground: #f4f6f5;
-  --primary: #67b99b;
-  --primary-foreground: #102b23;
-  --card: #19392f;
-  --border: #335448;
-  --muted: #264439;
-  --muted-foreground: #bbcec3;
-  --accent: #315748;
-  --accent-foreground: #fff;
+  --sand: #faf4e9;
+  --arena-fill: #f2e4cc;
+  --gold: #c98a2e;
+  --leather: #b5722a;
+  --leather-dark: #8f5920;
+  --ink: #3a2c1d;
+  --surface: #fffdf8;
+  --border: #e8dcc6;
+  --border-strong: #e2d0b0;
+  --muted: #6b5741;
+  --letter: #7a5a30;
+  --eyebrow: #a07a44;
+  --tip-bg: #f6ecd9;
+  --radius: 0.7rem;
+
+  --font-display: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* ── Base elements ── */
@@ -40,10 +29,12 @@ body {
 }
 body {
   margin: 0;
-  background: #f4f6f5;
-  color: #203e36;
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--font-body);
   font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 button,
 a {
