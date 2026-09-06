@@ -33,7 +33,6 @@ export default function ProgramPlayer({
     [fraction, setFraction] = useState(0),
     [restart, setRestart] = useState(0);
   const marker = useRef<SVGGElement>(null),
-    label = useRef<HTMLSpanElement>(null),
     drawnPaths = useRef<(SVGPathElement | null)[]>([]),
     elapsed = useRef(0),
     currentRow = useRef<HTMLButtonElement>(null);
@@ -97,8 +96,6 @@ export default function ProgramPlayer({
         `translate(${q.x} ${q.y}) rotate(${angle})`,
       );
       marker.current?.style.setProperty('color', gaitColors[segment.gait]);
-      if (label.current)
-        label.current.textContent = segment.label ?? row.gaitLabel;
     }
     position(elapsed.current);
     function tick(time: number) {
@@ -161,12 +158,17 @@ export default function ProgramPlayer({
         </div>
       </header>
       <div className="workspace">
+        <div className="exercise-head" aria-live="polite">
+          <span className="eyebrow">
+            ØVELSE {String(index + 1).padStart(2, '0')} / {rows.length} ·{' '}
+            {row.gaitLabel}
+          </span>
+          <h2>{row.title}</h2>
+          <span className="at">{row.location}</span>
+          <p className="description">{row.description}</p>
+        </div>
         <section className="stage">
           <div className="arena-wrap">
-            <div className="arena-note">
-              <b>{String(index + 1).padStart(2, '0')}</b>
-              <span ref={label}>{row.gaitLabel}</span>
-            </div>
             <svg
               className="arena"
               viewBox={`-5 -5 ${arena.width + 10} ${arena.height + 10}`}
@@ -282,16 +284,6 @@ export default function ProgramPlayer({
             </svg>
           </div>
         </section>
-        <div className="exercise-head" aria-live="polite">
-          <span className="eyebrow">
-            ØVELSE {String(index + 1).padStart(2, '0')} / {rows.length} ·{' '}
-            {row.gaitLabel}
-          </span>
-          <h2>
-            {row.title} <span className="at">· {row.location}</span>
-          </h2>
-          <p className="description">{row.description}</p>
-        </div>
         <div className="controls-primary">
           <button
             className="step"
@@ -342,18 +334,6 @@ export default function ProgramPlayer({
                 <span>{row.size.description}</span>
               </div>
             )}
-            <p className="schematic">{row.note}</p>
-          </div>
-          <div className="next-preview">
-            {index < rows.length - 1 ? (
-              <>
-                HEREFTER <span>{rows[index + 1].title}</span>
-              </>
-            ) : (
-              <>
-                PROGRAMMET ER SLUT <span>God træning!</span>
-              </>
-            )}
           </div>
         </aside>
         <div
@@ -392,7 +372,6 @@ export default function ProgramPlayer({
               Travers
             </span>
           </div>
-          <p>{program.legendNote}</p>
         </div>
         <section className="program">
           <div className="program-heading">

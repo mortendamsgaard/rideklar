@@ -23,11 +23,13 @@ html {
   --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
   --h-header: 50px;
-  --h-arena: 414px;
-  /* Worst case measured at 390px across all 547 exercises: eyebrow 18 +
-     h2 margin 4 + two-line title 47 (82 exercises wrap; none reach three)
-     + description margin 6 + two-line clamped description 41. */
-  --h-text: 116px;
+  --h-arena: 409px;
+  /* Worst case measured at 390px across all 547 exercises with the location
+     (.at) on its own line beneath the title: two-line titles push
+     .exercise-head to 120.109px rendered (e.g. la2-a-pony #11, "Halvvolte,
+     trav og venstre anspring"); rounded up. min-height binds this so every
+     exercise renders at exactly this height. */
+  --h-text: 121px;
   --h-control-row: 44px;
   /* The three stacked paddings: .stage 10 + .exercise-head 10 +
      .controls-primary 10. */
@@ -188,55 +190,34 @@ header,
   border: 1px solid var(--border-strong);
   border-radius: 4px;
 }
-.arena-note {
-  position: absolute;
-  top: 20px;
-  left: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.arena-note b {
-  font-size: 28px;
-  font-weight: 400;
-  color: var(--muted);
-  opacity: 0.5;
-}
-.arena-note span {
-  font-size: 12px;
-  color: var(--muted);
-}
 
 /* ── Route legend ── */
 .route-key {
-  padding: 14px 12px 0;
+  padding: 12px 12px 0;
   color: var(--muted);
   font-size: 12px;
-}
-.route-key p {
-  font-size: 12px;
-  line-height: 1.5;
-  color: var(--muted);
-  text-align: center;
-  margin: 6px auto 0;
-  max-width: 480px;
 }
 .legend {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 16px;
+  justify-content: center;
+  gap: 10px 22px;
   align-items: center;
+}
+.legend + .legend {
+  margin-top: 12px;
 }
 .legend span {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 .legend i {
   width: 13px;
   height: 13px;
   border-radius: 4px;
   display: inline-block;
+  flex: none;
 }
 .movement-key svg {
   width: 32px;
@@ -244,6 +225,7 @@ header,
   stroke: var(--muted);
   stroke-width: 1.7;
   fill: none;
+  flex: none;
 }
 
 /* ── Playback controls ── */
@@ -300,9 +282,10 @@ header,
 
 /* ── Exercise detail ── */
 .detail-content {
-  padding: 0 0 20px;
+  padding: 0;
 }
 .exercise-head {
+  min-height: var(--h-text);
   padding: 10px 12px 0;
 }
 .exercise-head h2 {
@@ -312,9 +295,11 @@ header,
   margin: 4px 0 0;
 }
 .exercise-head .at {
+  display: block;
   font-family: var(--font-body);
   font-size: 13px;
   color: var(--leather);
+  margin-top: 2px;
 }
 
 .description {
@@ -354,22 +339,10 @@ header,
   flex: none;
 }
 
-.size-note,
-.schematic,
-.next-preview {
+.size-note {
   margin: 10px 12px 0;
   font-size: 13px;
   color: var(--muted);
-}
-.next-preview {
-  color: var(--eyebrow);
-  letter-spacing: 0.6px;
-  font-size: 11px;
-}
-.next-preview span {
-  color: var(--ink);
-  font-weight: 700;
-  letter-spacing: 0;
 }
 
 /* ── Full program list ── */
@@ -544,9 +517,7 @@ footer a {
   }
 
   .tip,
-  .size-note,
-  .schematic,
-  .next-preview {
+  .size-note {
     margin-left: 0;
     margin-right: 0;
   }
