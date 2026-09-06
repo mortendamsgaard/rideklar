@@ -1,12 +1,5 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from '@/components/ui/select';
 import { loadJson, parseCatalog, parseProgram } from '@/lib/program';
 import type { Catalog, Program } from '@/lib/program';
 import ProgramPlayer from './program-player';
@@ -66,9 +59,13 @@ export default function Home() {
     return () => controller.abort();
   }, [catalog, selected]);
   const selector = catalog ? (
-    <Select
+    <select
+      className="program-select"
+      aria-label="Vælg rideprogram"
       value={selected}
-      onValueChange={(value) => {
+      disabled={loading}
+      onChange={(event) => {
+        const value = event.target.value;
         if (value && value !== selected) {
           request.current?.abort();
           setLoading(true);
@@ -77,19 +74,12 @@ export default function Home() {
         }
       }}
     >
-      <SelectTrigger className="program-select" aria-label="Vælg rideprogram">
-        <SelectValue>
-          {catalog.programs.find((p) => p.id === selected)?.label}
-        </SelectValue>
-      </SelectTrigger>
-      <SelectContent>
-        {catalog.programs.map((p) => (
-          <SelectItem key={p.id} value={p.id}>
-            {p.label}
-          </SelectItem>
-        ))}
-      </SelectContent>
-    </Select>
+      {catalog.programs.map((p) => (
+        <option key={p.id} value={p.id}>
+          {p.label}
+        </option>
+      ))}
+    </select>
   ) : null;
   if (!program)
     return (
