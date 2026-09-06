@@ -8,8 +8,6 @@ import {
   ArrowRight,
   Play,
   Pause,
-  RotateCcw,
-  ExternalLink,
   Lightbulb,
   Check,
   Route,
@@ -56,11 +54,6 @@ export default function ProgramPlayer({
     setAll(false);
     reset();
   }
-  function repeat() {
-    reset();
-    setAll(false);
-    setPlaying(true);
-  }
   useEffect(() => {
     let frame = 0,
       last: number | null = null;
@@ -91,8 +84,10 @@ export default function ProgramPlayer({
           : len === 0
             ? stationaryPosition(segment.d)
             : p.getPointAtLength(distance),
-        before = len === 0 ? q : p.getPointAtLength(Math.max(0, distance - 0.08)),
-        after = len === 0 ? q : p.getPointAtLength(Math.min(len, distance + 0.08));
+        before =
+          len === 0 ? q : p.getPointAtLength(Math.max(0, distance - 0.08)),
+        after =
+          len === 0 ? q : p.getPointAtLength(Math.min(len, distance + 0.08));
       const angle = row.assessment
         ? row.restingPoint!.heading
         : (segment.heading ??
@@ -146,48 +141,22 @@ export default function ProgramPlayer({
   }
   return (
     <main>
-      <header>
+      <header className="app-header">
         <Link className="brand" href="/">
           <span className="brand-mark">
-            <Route size={22} />
+            <Route size={20} />
           </span>
           rideklar<span className="brand-dot">.</span>
         </Link>
-        {selector}
-        <a
-          className="source"
-          href={program.source.url}
-          target="_blank"
-          rel="noreferrer"
-        >
-          DRF-protokol <ExternalLink size={15} />
-        </a>
-      </header>
-      <section className="heading">
-        <div>
-          <p className="eyebrow">DIT PROGRAM, ÉN ØVELSE AD GANGEN</p>
-          <h1>
-            {program.title} <span>{program.audience}</span>
-          </h1>
-        </div>
-        <div className="badges">
-          <span>
+        <div className="header-meta">
+          <span className="header-arena">
             {arena.width} × {arena.height} m
           </span>
-          <span>{rows.length} øvelser</span>
-          <span className="verified">
-            <Check size={14} /> {program.source.badge}
-          </span>
+          {selector}
         </div>
-      </section>
+      </header>
       <div className="workspace">
-        <section className="arena-panel">
-          <div className="panel-heading">
-            <span>
-              <span className="live-dot" /> Ridebanen
-            </span>
-            <span>{arena.label}</span>
-          </div>
+        <section className="stage">
           <div className="arena-wrap">
             <div className="arena-note">
               <b>{String(index + 1).padStart(2, '0')}</b>
@@ -206,7 +175,7 @@ export default function ProgramPlayer({
                   height="1"
                   patternUnits="userSpaceOnUse"
                 >
-                  <circle cx=".5" cy=".5" r=".025" fill="#b4ab96" />
+                  <circle cx=".5" cy=".5" r=".025" fill="#d8c39c" />
                 </pattern>
                 {Object.entries(gaitColors).map(([gait, color]) => (
                   <marker
@@ -229,11 +198,11 @@ export default function ProgramPlayer({
                 width={arena.width + 0.8}
                 height={arena.height + 0.8}
                 rx=".4"
-                fill="#fff"
-                stroke="#c1c8c4"
+                fill="#fffdf8"
+                stroke="#e2d0b0"
                 strokeWidth=".12"
               />
-              <rect width={arena.width} height={arena.height} fill="#f3efe4" />
+              <rect width={arena.width} height={arena.height} fill="#f2e4cc" />
               <rect
                 width={arena.width}
                 height={arena.height}
@@ -241,7 +210,7 @@ export default function ProgramPlayer({
               />
               <path
                 d={`M${arena.width / 2} 0V${arena.height} M0 ${arena.height / 2}H${arena.width}`}
-                stroke="#bbbbaa"
+                stroke="#d8c39c"
                 strokeDasharray=".3 .5"
                 strokeWidth=".08"
               />
@@ -253,7 +222,7 @@ export default function ProgramPlayer({
                     textAnchor="middle"
                     dominantBaseline="middle"
                     fontSize={interior ? '.85' : '1.1'}
-                    fill={interior ? '#8d9287' : '#304d45'}
+                    fill={interior ? '#a58a5e' : '#7a5a30'}
                     fontWeight="600"
                   >
                     {l}
@@ -261,7 +230,7 @@ export default function ProgramPlayer({
                   {!interior && (x < 0 || x > arena.width) && (
                     <path
                       d={`M${x < 0 ? -0.4 : arena.width} ${y}h.4`}
-                      stroke="#668077"
+                      stroke="#b5722a"
                       strokeWidth=".15"
                     />
                   )}
@@ -346,46 +315,61 @@ export default function ProgramPlayer({
             </div>
             <p>{program.legendNote}</p>
           </div>
-          <div className="playback">
+          <div className="controls-primary">
             <button
-              className="icon-button"
-              aria-label="Gentag øvelsen"
-              disabled={suspended}
-              onClick={repeat}
-            >
-              <RotateCcw size={19} />
-            </button>
-            <button
-              className="primary"
-              disabled={suspended}
-              onClick={() => play(false)}
-            >
-              {playing && !all ? <Pause size={17} /> : <Play size={17} />}{' '}
-              {playing && !all ? 'Pause' : 'Afspil øvelse'}
-            </button>
-            <button
-              className="full-play"
+              className="play-all"
               disabled={suspended}
               onClick={() => play(true)}
             >
-              {playing && all ? <Pause size={17} /> : <Play size={17} />}{' '}
-              {playing && all ? 'Pause program' : 'Afspil hele programmet'}
+              <span
+                className="play-fill"
+                aria-hidden="true"
+                style={{ width: `${all ? fraction * 100 : 0}%` }}
+              />
+              <span className="play-label">
+                {playing && all ? <Pause size={17} /> : <Play size={17} />}
+                {playing && all ? 'Pause program' : 'Afspil hele programmet'}
+              </span>
             </button>
           </div>
-          <div className="play-progress" aria-hidden="true">
-            <div style={{ width: `${fraction * 100}%` }} />
+          <div className="controls-secondary">
+            <button
+              className="step"
+              aria-label="Forrige øvelse"
+              disabled={suspended || index === 0}
+              onClick={() => choose(index - 1)}
+            >
+              <ArrowLeft size={18} />
+            </button>
+            <button
+              className="play-one"
+              disabled={suspended}
+              onClick={() => play(false)}
+            >
+              {playing && !all ? <Pause size={16} /> : <Play size={16} />}
+              {playing && !all ? 'Pause' : 'Øvelsen'}
+            </button>
+            <button
+              className="step"
+              aria-label="Næste øvelse"
+              disabled={suspended || index === rows.length - 1}
+              onClick={() => choose(index + 1)}
+            >
+              <ArrowRight size={18} />
+            </button>
           </div>
         </section>
         <aside className="detail">
-          <div className="detail-top">
+          <div className="exercise-head">
             <span className="eyebrow">
-              ØVELSE {String(index + 1).padStart(2, '0')} / {rows.length}
+              ØVELSE {String(index + 1).padStart(2, '0')} / {rows.length} ·{' '}
+              {row.gaitLabel}
             </span>
-            <span className="gait">{row.gaitLabel}</span>
+            <h2>
+              {row.title} <span className="at">· {row.location}</span>
+            </h2>
           </div>
           <div className="detail-content" aria-live="polite">
-            <h2>{row.title}</h2>
-            <p className="route-letters">{row.location}</p>
             <p className="description">{row.description}</p>
             <div className="tip">
               <Lightbulb size={22} />
@@ -434,26 +418,30 @@ export default function ProgramPlayer({
           <h2>Hele programmet</h2>
           <span>Vælg en øvelse og find din vej</span>
         </div>
-        <div className="exercise-grid">
+        <div className="program-list">
           {rows.map((r, i) => (
             <button
               key={r.id}
               disabled={suspended}
-              className={i === index ? 'exercise selected' : 'exercise'}
+              className={i === index ? "program-row current" : "program-row"}
               aria-current={i === index ? 'step' : undefined}
               onClick={() => choose(i)}
             >
-              <span className="number">{String(i + 1).padStart(2, '0')}</span>
-              <span>
-                <b>{r.title}</b>
-                <small>{r.location}</small>
+              <span className="row-number">
+                {String(i + 1).padStart(2, '0')}
               </span>
-              {i === index && <span className="selected-dot" />}
+              <span className="row-title">{r.title}</span>
             </button>
           ))}
         </div>
       </section>
       <footer>
+        <p className="footer-meta">
+          {program.title} · {program.audience} · {rows.length} øvelser ·{' '}
+          <span className="verified">
+            <Check size={13} /> {program.source.badge}
+          </span>
+        </p>
         <p>{program.disclaimer}</p>
         <p>
           {program.source.note}{' '}
