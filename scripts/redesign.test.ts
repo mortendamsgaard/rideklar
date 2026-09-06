@@ -123,7 +123,7 @@ void test('player markup exposes the new layout hooks', () => {
     'program-list',
     'program-row',
   ]) {
-    assert.match(code, new RegExp(`"${hook}`), `missing .${hook}`);
+    assert.match(code, new RegExp(`["']${hook}`), `missing .${hook}`);
   }
   assert.doesNotMatch(
     code,

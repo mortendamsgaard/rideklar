@@ -423,7 +423,7 @@ export default function ProgramPlayer({
             <button
               key={r.id}
               disabled={suspended}
-              className={i === index ? "program-row current" : "program-row"}
+              className={i === index ? 'program-row current' : 'program-row'}
               aria-current={i === index ? 'step' : undefined}
               onClick={() => choose(i)}
             >
