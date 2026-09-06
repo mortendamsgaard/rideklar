@@ -21,6 +21,13 @@ html {
 
   --font-display: var(--font-fraunces), Georgia, 'Times New Roman', serif;
   --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --h-header: 50px;
+  --h-arena: 400px;
+  --h-text: 88px;
+  --h-control-row: 44px;
+  --h-gaps: 32px;
+  --vp-target: 664px;
 }
 
 /* ── Base elements ── */
@@ -191,9 +198,12 @@ h1 span {
   justify-content: center;
 }
 .arena {
-  height: 460px;
-  width: 100%;
+  height: var(--h-arena);
+  width: auto;
   display: block;
+  background: var(--arena-fill);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
 }
 .arena-note {
   position: absolute;

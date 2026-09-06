@@ -65,3 +65,32 @@ void test('route colours are untouched', () => {
     assert.match(style, new RegExp(hex, 'i'), `${hex} must remain`);
   }
 });
+
+void test('the first screen fits an iPhone 14 viewport without scrolling', () => {
+  const css = read('app/globals.css');
+  const px = (name: string) => {
+    const m = css.match(new RegExp(`${name}:\\s*(\\d+)px`));
+    assert.ok(m, `${name} must be declared in :root as a px value`);
+    return Number(m![1]);
+  };
+  const total =
+    px('--h-header') +
+    px('--h-arena') +
+    px('--h-text') +
+    px('--h-control-row') * 2 +
+    px('--h-gaps');
+  const target = px('--vp-target');
+  assert.equal(target, 664, 'iPhone 14 Safari visible viewport');
+  assert.ok(
+    total <= target,
+    `first screen is ${total}px but must fit ${target}px — reduce --h-arena`,
+  );
+});
+
+void test('the arena is sized by height so both arena shapes fill the same slot', () => {
+  const css = read('app/globals.css');
+  const rule = css.match(/\.arena\s*\{[^}]*\}/);
+  assert.ok(rule, '.arena rule must exist');
+  assert.match(rule![0], /height:\s*var\(--h-arena\)/);
+  assert.match(rule![0], /width:\s*auto/, 'width must be auto, not 100%');
+});
