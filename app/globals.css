@@ -313,6 +313,17 @@ header,
   overflow: hidden;
 }
 
+/* Tapping the text expands it. A separate "vis mere" button would add height
+   to the reserved block and start the arena shifting between exercises. */
+.description[role='button'] {
+  cursor: pointer;
+}
+.description.expanded {
+  -webkit-line-clamp: unset;
+  display: block;
+  overflow: visible;
+}
+
 .tip {
   display: flex;
   gap: 11px;

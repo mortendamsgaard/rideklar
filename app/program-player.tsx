@@ -2,7 +2,7 @@
 /* oxlint-disable jsx-a11y/prefer-tag-over-role -- The interactive SVG arena needs an accessible image role. */
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import type { ReactNode } from 'react';
+import type { KeyboardEvent, ReactNode } from 'react';
 import {
   ArrowLeft,
   ArrowRight,
@@ -29,6 +29,8 @@ export default function ProgramPlayer({
   suspended: boolean;
 }) {
   const [index, setIndex] = useState(0),
+    [expandedFor, setExpandedFor] = useState(-1),
+    [clipped, setClipped] = useState(false),
     [playing, setPlaying] = useState(false),
     [fraction, setFraction] = useState(0),
     [restart, setRestart] = useState(0);
@@ -41,6 +43,8 @@ export default function ProgramPlayer({
     row = rows[index],
     segments = row.segments,
     lastVisible = segments.reduce((last, s, i) => (s.hidden ? last : i), -1);
+  // Derived, not stored: switching exercise collapses the text for free.
+  const expanded = expandedFor === index;
   function reset() {
     elapsed.current = 0;
     setFraction(0);
@@ -165,7 +169,28 @@ export default function ProgramPlayer({
           </span>
           <h2>{row.title}</h2>
           <span className="at">{row.location}</span>
-          <p className="description">{row.description}</p>
+          <p
+            ref={(el) => {
+              if (el && !expanded)
+                setClipped(el.scrollHeight > el.clientHeight + 1);
+            }}
+            className={expanded ? 'description expanded' : 'description'}
+            {...(clipped && {
+              role: 'button',
+              tabIndex: 0,
+              'aria-expanded': expanded,
+              title: expanded ? 'Vis mindre' : 'Vis hele teksten',
+              onClick: () => setExpandedFor(expanded ? -1 : index),
+              onKeyDown: (event: KeyboardEvent<HTMLParagraphElement>) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
+                  setExpandedFor(expanded ? -1 : index);
+                }
+              },
+            })}
+          >
+            {row.description}
+          </p>
         </div>
         <section className="stage">
           <div className="arena-wrap">
@@ -361,7 +386,11 @@ export default function ProgramPlayer({
             </span>
             <span>
               <svg viewBox="0 0 32 12" aria-hidden="true">
-                <path d="M1 6H31" />
+                <path
+                  d="M1 6H31"
+                  strokeDasharray="0.1 4"
+                  strokeLinecap="round"
+                />
               </svg>
               Travers
             </span>

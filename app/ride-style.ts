@@ -5,8 +5,12 @@ export const gaitColors = {
   galop: '#c63838',
   neutral: '#62717c',
 } as const;
+// Travers previously fell through to `undefined`, drawing it identically to an
+// ordinary segment. Round caps turn the near-zero dash into a dot.
 export function lineDash(movement: Movement = 'normal') {
-  return movement === 'schenkelvigning' ? '.65 .4' : undefined;
+  if (movement === 'schenkelvigning') return '.65 .4';
+  if (movement === 'travers') return '.01 .45';
+  return undefined;
 }
 // Offset only the drawn notation; animation always uses the original centreline.
 export function zigzagPath(path: SVGPathElement) {
