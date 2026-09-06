@@ -146,5 +146,13 @@ the DRF protocol it derives from.
 
 This project is not affiliated with or endorsed by Dansk Ride Forbund.
 
-No license is granted. The source is published for reference; all rights are
-reserved.
+## License
+
+[MIT](LICENSE) — Copyright (c) 2026 Morten Damsgaard.
+
+The MIT licence covers the code. The program files under `public/programs/` are
+authored interpretations of DRF's published protocols; the wording and route
+geometry in them are original work and are covered too, but the underlying
+protocols are DRF's and are not licensed here. If you reuse the program data,
+check the current DRF protocols yourself rather than treating these files as an
+authoritative source.
