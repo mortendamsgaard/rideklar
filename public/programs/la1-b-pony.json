@@ -1,0 +1,515 @@
+{
+  "schemaVersion": 1,
+  "id": "la1-b-pony",
+  "title": "LA1-B",
+  "audience": "for pony",
+  "description": "Træning af LA1-B med fokus på smidighed, afskub og begyndende selvbalance. Programmet omfatter schenkelvigninger, galopanspring fra skridt og kontragalop på lige spor.",
+  "source": {
+    "title": "DRF LA1-B 2025",
+    "url": "https://rideforbund.dk/Files/Files/PDF-filer/Dressur/Nye%20protokoller%202025/LA/DRF%20LA1%20-%20B%202025.pdf",
+    "edition": "2025",
+    "documentDate": "2026-05-03",
+    "checkedOn": "2026-09-05",
+    "badge": "DRF 2025 · aktuel protokol",
+    "note": "Kilde kontrolleret 5. september 2026 · LA1-B 2025 · PDF dateret 3. maj 2026."
+  },
+  "arena": {
+    "width": 20,
+    "height": 40,
+    "label": "Bane B · set ovenfra",
+    "letters": [
+      {
+        "label": "C",
+        "x": 10,
+        "y": -2,
+        "interior": false
+      },
+      {
+        "label": "H",
+        "x": -2,
+        "y": 6,
+        "interior": false
+      },
+      {
+        "label": "E",
+        "x": -2,
+        "y": 20,
+        "interior": false
+      },
+      {
+        "label": "K",
+        "x": -2,
+        "y": 34,
+        "interior": false
+      },
+      {
+        "label": "A",
+        "x": 10,
+        "y": 42.5,
+        "interior": false
+      },
+      {
+        "label": "F",
+        "x": 22,
+        "y": 34,
+        "interior": false
+      },
+      {
+        "label": "B",
+        "x": 22,
+        "y": 20,
+        "interior": false
+      },
+      {
+        "label": "M",
+        "x": 22,
+        "y": 6,
+        "interior": false
+      },
+      {
+        "label": "G",
+        "x": 10,
+        "y": 6,
+        "interior": true
+      },
+      {
+        "label": "X",
+        "x": 10,
+        "y": 20,
+        "interior": true
+      },
+      {
+        "label": "D",
+        "x": 10,
+        "y": 34,
+        "interior": true
+      }
+    ]
+  },
+  "legendNote": "Stiplede linjer viser schenkelvigning. Versade og travers indgår ikke i LA1-B.",
+  "disclaimer": "Et selvstændigt træningssupplement til DRF’s officielle protokol. Rideveje og huskepunkter er vejledende.",
+  "referenceDurationSeconds": 330,
+  "maxScore": 410,
+  "exercises": [
+    {
+      "id": "exercise-1",
+      "number": 1,
+      "title": "Indridning og hilsen",
+      "location": "A · X · C",
+      "gaitLabel": "Trav",
+      "description": "Rid ind i trav, stands ved X og hils. Fortsæt ligeud og drej til højre ved C.",
+      "tip": "Se mod C, og behold ponyen lige mellem dine hjælpere.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 1,
+      "segments": [
+        {
+          "d": "M10 40 L10 20",
+          "gait": "trav",
+          "seconds": 3
+        },
+        {
+          "d": "M10 20",
+          "gait": "neutral",
+          "seconds": 2,
+          "hidden": true,
+          "heading": -90,
+          "label": "Parade"
+        },
+        {
+          "d": "M10 20 L10 2 Q10 0 12 0",
+          "gait": "trav",
+          "seconds": 5
+        }
+      ]
+    },
+    {
+      "id": "exercise-2",
+      "number": 2,
+      "title": "Slangelinje og midterlinje",
+      "location": "M · (X) · F · A",
+      "gaitLabel": "Trav",
+      "description": "Rid en enkelt slangelinje fra M til F. Toppunktet ligger fem meter fra X. Fortsæt til A og vend ind på midterlinjen.",
+      "tip": "Find en blød bøjning, og ret ponyen ud mellem buerne.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 2,
+      "segments": [
+        {
+          "d": "M12 0 L18 0 Q20 0 20 2 L20 6 C20 11 15 15 15 20 C15 25 20 29 20 34 L20 38 Q20 40 18 40 L12 40 Q10 40 10 38 L10 34",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-3",
+      "number": 3,
+      "title": "Schenkelvigning mod H",
+      "location": "D · mellem E og H",
+      "gaitLabel": "Trav",
+      "description": "Fra D rides for højre schenkel til venstre langside. Ram hovslaget mellem E og H, og fortsæt i trav.",
+      "tip": "Lad forparten føre en smule, og bevar fremaddriften.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 3,
+      "segments": [
+        {
+          "d": "M10 34 L1 16 Q0 14 0 13",
+          "gait": "trav",
+          "movement": "schenkelvigning"
+        },
+        {
+          "d": "M0 13 L0 6",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-4",
+      "number": 4,
+      "title": "Middeltrav mod K",
+      "location": "H · C · M · X · K · A",
+      "gaitLabel": "Trav / middeltrav",
+      "description": "Følg kortsiden til M og rid diagonalen i middeltrav. Kom tilbage i arbejdstrav inden K og fortsæt til A.",
+      "tip": "Sid med i bevægelsen, og tænk længere trin frem for højere tempo.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 4,
+      "segments": [
+        {
+          "d": "M0 6 L0 2 Q0 0 2 0 L18 0 Q20 0 20 2 L20 4 Q20 6 18 8.8 L1.2 32.32 Q0 34 0 36 L0 38 Q0 40 2 40 L10 40",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-5",
+      "number": 5,
+      "title": "Parade og tilbage",
+      "location": "A",
+      "gaitLabel": "Trav / tilbage",
+      "description": "Stands ved A, træd fire til seks skridt tilbage og rid frem i arbejdstrav.",
+      "tip": "Tæl de diagonale skridt og hold ponyen lige.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 5,
+      "segments": [
+        {
+          "d": "M10 40",
+          "gait": "neutral",
+          "seconds": 2,
+          "hidden": true,
+          "heading": 0,
+          "label": "Parade"
+        },
+        {
+          "d": "M10 40 L7.5 40",
+          "gait": "neutral",
+          "reverse": true,
+          "seconds": 3,
+          "label": "4–6 skridt tilbage"
+        },
+        {
+          "d": "M7.5 40 L10 40",
+          "gait": "trav",
+          "seconds": 2
+        }
+      ]
+    },
+    {
+      "id": "exercise-6",
+      "number": 6,
+      "title": "Slangelinje mod C",
+      "location": "F · (X) · M · C",
+      "gaitLabel": "Trav",
+      "description": "Rid slangelinjen fra F til M med toppunkt fem meter fra X. Fortsæt til C og vend ind på midterlinjen.",
+      "tip": "Bevar samme travrytme gennem begge buer.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 6,
+      "segments": [
+        {
+          "d": "M10 40 L18 40 Q20 40 20 38 L20 34 C20 29 15 25 15 20 C15 15 20 11 20 6 L20 2 Q20 0 18 0 L12 0 Q10 0 10 2 L10 6",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-7",
+      "number": 7,
+      "title": "Schenkelvigning mod K",
+      "location": "G · mellem E og K",
+      "gaitLabel": "Trav",
+      "description": "Rid fra G for venstre schenkel til hovslaget mellem E og K. Fortsæt mod K i arbejdstrav.",
+      "tip": "Hold halsen næsten lige og mærk både fremad og sidelæns.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 7,
+      "segments": [
+        {
+          "d": "M10 6 L1 24 Q0 26 0 27",
+          "gait": "trav",
+          "movement": "schenkelvigning"
+        },
+        {
+          "d": "M0 27 L0 34",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-8",
+      "number": 8,
+      "title": "Middeltrav mod H",
+      "location": "K · A · F · X · H · C",
+      "gaitLabel": "Trav / middeltrav",
+      "description": "Følg sporet til F og øg traven på diagonalen mod H. Vend tilbage til arbejdstrav før H og fortsæt til C.",
+      "tip": "Forbered overgangen, før du når hovslaget.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 8,
+      "segments": [
+        {
+          "d": "M0 34 L0 38 Q0 40 2 40 L18 40 Q20 40 20 38 L20 36 Q20 34 18 31.2 L1.2 7.68 Q0 6 0 4 L0 2 Q0 0 2 0 L10 0",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-9",
+      "number": 9,
+      "title": "Halvvolte i skridt",
+      "location": "C · X",
+      "gaitLabel": "Skridt",
+      "description": "Skift til skridt ved C. Rid en halv 20-meter-volte til højre frem til X med længere tøjler.",
+      "tip": "Følg halsens bevægelse og behold en let kontakt.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 9,
+      "segments": [
+        {
+          "d": "M10 0 A10 10 0 0 1 10 20",
+          "gait": "skridt"
+        }
+      ],
+      "size": {
+        "meters": 20,
+        "description": "Halvvoltens diameter"
+      }
+    },
+    {
+      "id": "exercise-10",
+      "number": 10,
+      "title": "Skridt mod E",
+      "location": "X · E",
+      "gaitLabel": "Skridt",
+      "description": "Fortsæt i middelskridt fra X mod E.",
+      "tip": "Lad skridten være aktiv og afslappet, før du forbereder anspringet.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 10,
+      "segments": [
+        {
+          "d": "M10 20 L2 20",
+          "gait": "skridt"
+        }
+      ]
+    },
+    {
+      "id": "exercise-11",
+      "number": 11,
+      "title": "Venstregalop og volte tilbage",
+      "location": "E · K · D · E · H",
+      "gaitLabel": "Skridt / venstregalop",
+      "description": "Drej til venstre ved E og spring derefter an til venstre. Rid en 10-meter-volte tilbage fra K over D mod E og fortsæt i kontragalop til H.",
+      "tip": "Behold venstregaloppen, når du når hovslaget ved E.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 11,
+      "segments": [
+        {
+          "d": "M2 20 Q0 20 0 22",
+          "gait": "skridt"
+        },
+        {
+          "d": "M0 22 L0 34 A5 5 0 0 0 10 34 C10 30 4 24 1 21 Q0 20 0 18 L0 6",
+          "gait": "galop"
+        }
+      ],
+      "size": {
+        "meters": 10,
+        "description": "Halvvoltens diameter i volten tilbage"
+      }
+    },
+    {
+      "id": "exercise-12",
+      "number": 12,
+      "title": "Trav og nyt anspring",
+      "location": "H · C · M · B",
+      "gaitLabel": "Trav / højregalop",
+      "description": "Skift til trav ved H. Spring an til højre ved C og fortsæt i galop til B.",
+      "tip": "Find travens balance, før du forbereder det nye anspring.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 12,
+      "segments": [
+        {
+          "d": "M0 6 L0 2 Q0 0 2 0 L10 0",
+          "gait": "trav"
+        },
+        {
+          "d": "M10 0 L18 0 Q20 0 20 2 L20 20",
+          "gait": "galop"
+        }
+      ]
+    },
+    {
+      "id": "exercise-13",
+      "number": 13,
+      "title": "Volte tilbage fra F",
+      "location": "B · F · D · B · M",
+      "gaitLabel": "Højregalop",
+      "description": "Fortsæt til F, rid en 10-meter-volte tilbage over D mod B, og behold højregaloppen på den lige linje til M.",
+      "tip": "Bevar galoppens stilling og undgå at skifte ved hovslaget.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 13,
+      "segments": [
+        {
+          "d": "M20 20 L20 34 A5 5 0 0 1 10 34 C10 30 16 24 19 21 Q20 20 20 18 L20 6",
+          "gait": "galop"
+        }
+      ],
+      "size": {
+        "meters": 10,
+        "description": "Halvvoltens diameter i volten tilbage"
+      }
+    },
+    {
+      "id": "exercise-14",
+      "number": 14,
+      "title": "Trav og venstre anspring",
+      "location": "M · C · H · E",
+      "gaitLabel": "Trav / venstregalop",
+      "description": "Rid trav fra M til C. Spring an til venstre ved C og følg sporet til E.",
+      "tip": "Rid en rolig overgang og gør ponyen klar til venstre galop.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 14,
+      "segments": [
+        {
+          "d": "M20 6 L20 2 Q20 0 18 0 L10 0",
+          "gait": "trav"
+        },
+        {
+          "d": "M10 0 L2 0 Q0 0 0 2 L0 20",
+          "gait": "galop"
+        }
+      ]
+    },
+    {
+      "id": "exercise-15",
+      "number": 15,
+      "title": "Galopvolte med eftergift",
+      "location": "E · B · E",
+      "gaitLabel": "Venstregalop",
+      "description": "Rid en 20-meter-volte. Giv kortvarigt støtten på biddet fra dig mellem E og B, og tag kontakten blødt igen.",
+      "tip": "Før begge hænder frem uden at ændre dit sæde eller tempo.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 15,
+      "segments": [
+        {
+          "d": "M0 20 A10 10 0 0 0 20 20 A10 10 0 0 0 0 20",
+          "gait": "galop"
+        }
+      ],
+      "size": {
+        "meters": 20,
+        "description": "Voltens diameter"
+      }
+    },
+    {
+      "id": "exercise-16",
+      "number": 16,
+      "title": "Arbejdsgalop langs sporet",
+      "location": "E · K · A · F",
+      "gaitLabel": "Venstregalop",
+      "description": "Fortsæt i arbejdsgalop fra E gennem hjørnerne og forbi A til F.",
+      "tip": "Brug hjørnerne til at bevare bøjning og balance.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 16,
+      "segments": [
+        {
+          "d": "M0 20 L0 38 Q0 40 2 40 L18 40 Q20 40 20 38 L20 34",
+          "gait": "galop"
+        }
+      ]
+    },
+    {
+      "id": "exercise-17",
+      "number": 17,
+      "title": "Middelgalop på diagonalen",
+      "location": "F · X · H",
+      "gaitLabel": "Middelgalop",
+      "description": "Rid diagonalen fra F over X mod H i middelgalop. Kom tilbage i arbejdsgalop før H.",
+      "tip": "Bed om mere rummelighed og bevar en jævn galoprytme.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 17,
+      "segments": [
+        {
+          "d": "M20 34 L0 6",
+          "gait": "galop"
+        }
+      ]
+    },
+    {
+      "id": "exercise-18",
+      "number": 18,
+      "title": "Tilbage i trav",
+      "location": "H · C · M",
+      "gaitLabel": "Trav",
+      "description": "Gå over i arbejdstrav ved H og følg kortsiden til M.",
+      "tip": "Støt overgangen med en rolig overkrop og bløde hænder.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 18,
+      "segments": [
+        {
+          "d": "M0 6 L0 2 Q0 0 2 0 L18 0 Q20 0 20 2 L20 6",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-19",
+      "number": 19,
+      "title": "Stræk på halvvolten",
+      "location": "M · H · før C",
+      "gaitLabel": "Trav",
+      "description": "Rid en 20-meter-halvvolte fra M til H i letridning og forlæng tøjlerne gradvis. Saml tøjlerne igen og sid ned før C.",
+      "tip": "Lad ponyen søge frem og ned med uændret travrytme.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 19,
+      "segments": [
+        {
+          "d": "M20 6 A10 10 0 0 1 0 6 L0 2 Q0 0 2 0 L8 0",
+          "gait": "trav"
+        }
+      ],
+      "size": {
+        "meters": 20,
+        "description": "Halvvoltens diameter"
+      }
+    },
+    {
+      "id": "exercise-20",
+      "number": 20,
+      "title": "Midterlinje og afslutning",
+      "location": "C · M · B · X · G",
+      "gaitLabel": "Trav / parade",
+      "description": "Følg sporet over C og M mod B. Vend ind mod midterlinjen og rid til G. Stands og hils; rid derefter ud i skridt for lange tøjler.",
+      "tip": "Se op mod C og afslut med en lige, rolig parade.",
+      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
+      "sourceNumber": 20,
+      "segments": [
+        {
+          "d": "M8 0 L18 0 Q20 0 20 2 L20 18 Q20 20 18 20 L12 20 Q10 20 10 18 L10 6",
+          "gait": "trav"
+        },
+        {
+          "d": "M10 6",
+          "gait": "neutral",
+          "seconds": 2,
+          "hidden": true,
+          "heading": -90,
+          "label": "Parade"
+        }
+      ]
+    }
+  ]
+}

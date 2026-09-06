@@ -1,0 +1,1243 @@
+[
+  {
+    "id": "ld1-b-pony",
+    "exerciseCount": 10,
+    "arenaHeight": 40,
+    "sourceSha256": "b29685f6bc2dc93d51954ea920fb1af52893777a4faae3a534620c63348a0e44",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "circles": {
+      "3": 20,
+      "5": 20
+    },
+    "assessmentNumbers": [],
+    "gaitChanges": {},
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": []
+    }
+  },
+  {
+    "id": "ld2-b-pony",
+    "exerciseCount": 13,
+    "arenaHeight": 40,
+    "sourceSha256": "97c4e1b14bcebd64596fbaade646af0c7d9a18ff651ba60811bb97a302f70c7c",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "circles": {},
+    "assessmentNumbers": [],
+    "gaitChanges": {},
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": []
+    }
+  },
+  {
+    "id": "lc1-a-pony",
+    "exerciseCount": 14,
+    "arenaHeight": 60,
+    "sourceSha256": "599d23a186a334a9ac70644d68af3f0aebe80ffe4e8184ecd9ec2f516966ecf6",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "circles": {
+      "3": 20,
+      "5": 20,
+      "7": 20,
+      "9": 20,
+      "11": 20
+    },
+    "assessmentNumbers": [],
+    "gaitChanges": {},
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": []
+    }
+  },
+  {
+    "id": "lc1-b-pony",
+    "exerciseCount": 14,
+    "arenaHeight": 40,
+    "sourceSha256": "dd27808f2d7fb993d634f505070043c35337cef53236eec89051e676c906df2d",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "circles": {
+      "3": 20,
+      "5": 20,
+      "7": 20,
+      "9": 20,
+      "11": 20
+    },
+    "assessmentNumbers": [],
+    "gaitChanges": {},
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": []
+    }
+  },
+  {
+    "id": "lc2-a-pony",
+    "exerciseCount": 13,
+    "arenaHeight": 60,
+    "sourceSha256": "b16b7a475d0c4518ee889d7721d01cbbd5dc10a5a2c6a71b5bf3a150507de536",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "circles": {
+      "2": 20,
+      "5": 20,
+      "8": 20,
+      "11": 20
+    },
+    "assessmentNumbers": [],
+    "gaitChanges": {},
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": []
+    }
+  },
+  {
+    "id": "lc2-b-pony",
+    "exerciseCount": 12,
+    "arenaHeight": 40,
+    "sourceSha256": "16b9bae1b5b33f467a816e7f7aaeef8d775699d79902d41488bbf8ab556ad255",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "circles": {
+      "2": 20,
+      "7": 20,
+      "10": 20
+    },
+    "assessmentNumbers": [],
+    "gaitChanges": {},
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": []
+    }
+  },
+  {
+    "id": "lc3-a-pony",
+    "exerciseCount": 14,
+    "arenaHeight": 60,
+    "sourceSha256": "e76c736debc4ced0c954ddb6614a395dd4d26855c26f534a847a76ceacf449da",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "circles": {
+      "2": 12,
+      "4": 12,
+      "8": 12,
+      "11": 12
+    },
+    "assessmentNumbers": [],
+    "gaitChanges": {},
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": []
+    }
+  },
+  {
+    "id": "lc3-b-pony",
+    "exerciseCount": 14,
+    "arenaHeight": 40,
+    "sourceSha256": "04d6117b22fd0fa1e9af230c5e10cf28df7d3a2b5acc970c673548814004cfeb",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "circles": {
+      "2": 12,
+      "4": 12,
+      "8": 12,
+      "11": 12
+    },
+    "assessmentNumbers": [],
+    "gaitChanges": {},
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": []
+    }
+  },
+  {
+    "id": "lb1-a-pony",
+    "exerciseCount": 17,
+    "arenaHeight": 60,
+    "sourceSha256": "d31545b5641b8ee24a5247e9d9f5e2d7d8d1b195327f8eb53d2d68ed65cacd3e",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "circles": {
+      "2": 12,
+      "4": 12,
+      "10": 15,
+      "13": 15,
+      "15": 20
+    },
+    "assessmentNumbers": [],
+    "gaitChanges": {},
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": [
+        6,
+        8
+      ]
+    }
+  },
+  {
+    "id": "lb1-b-pony",
+    "exerciseCount": 18,
+    "arenaHeight": 40,
+    "sourceSha256": "bc46474f528dde4862a36b47a5b135ddbe9eafaacc9b2f432e5dd66ffddefe26",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "circles": {
+      "2": 10,
+      "4": 10,
+      "11": 12,
+      "14": 12,
+      "16": 20
+    },
+    "assessmentNumbers": [],
+    "gaitChanges": {},
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": [
+        6,
+        9
+      ]
+    }
+  },
+  {
+    "id": "lb2-a-pony",
+    "exerciseCount": 18,
+    "arenaHeight": 60,
+    "sourceSha256": "4684215680d576b7743b575bbc19d8bcfff170e70fa5646957a97279059f9eac",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "circles": {
+      "10": 12,
+      "14": 12
+    },
+    "assessmentNumbers": [
+      13
+    ],
+    "gaitChanges": {
+      "12": "trav"
+    },
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": [
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "id": "lb2-b-pony",
+    "exerciseCount": 17,
+    "arenaHeight": 40,
+    "sourceSha256": "a0d187df885d893399c001c82902e7a71c990e6416d68efc6ef08e85c2db1ffb",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "circles": {
+      "9": 10,
+      "13": 10,
+      "16": 20
+    },
+    "assessmentNumbers": [
+      12
+    ],
+    "gaitChanges": {
+      "11": "trav"
+    },
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": [
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "id": "lb3-a-pony",
+    "exerciseCount": 16,
+    "arenaHeight": 60,
+    "sourceSha256": "f00b230acdb27d0d898c007ea7b011482a07632fd7a8f9e10ff98548ef08761c",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "circles": {
+      "2": 12,
+      "3": 12,
+      "10": 12,
+      "12": 12,
+      "15": 20
+    },
+    "assessmentNumbers": [],
+    "gaitChanges": {},
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": [
+        7,
+        8
+      ]
+    }
+  },
+  {
+    "id": "lb3-b-pony",
+    "exerciseCount": 18,
+    "arenaHeight": 40,
+    "sourceSha256": "f0a8a96c605bb023c0fcf3c9109190b8b91dc72d334236776b3cc46961966c6b",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "circles": {
+      "2": 10,
+      "4": 10,
+      "6": 20,
+      "10": 10,
+      "13": 10
+    },
+    "assessmentNumbers": [
+      15
+    ],
+    "gaitChanges": {
+      "14": "trav"
+    },
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": [
+        7,
+        8
+      ]
+    }
+  },
+  {
+    "id": "la1-a-pony",
+    "exerciseCount": 17,
+    "arenaHeight": 60,
+    "sourceSha256": "312244b81fee8e9ea56316ff5369bbfebda8eb4acef71e5f8392ddf582a4e155",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "circles": {},
+    "assessmentNumbers": [],
+    "gaitChanges": {
+      "13": "trav"
+    },
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": []
+    }
+  },
+  {
+    "id": "la1-b-pony",
+    "exerciseCount": 20,
+    "arenaHeight": 40,
+    "sourceSha256": "f0bf85f3ca3b04b96a6a84bf00ba7df673382ebd8ba13b8e6ace049388744ff0",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "circles": {},
+    "assessmentNumbers": [],
+    "gaitChanges": {},
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": [
+        3,
+        7
+      ]
+    }
+  },
+  {
+    "id": "la2-a-pony",
+    "exerciseCount": 20,
+    "arenaHeight": 60,
+    "sourceSha256": "fa026f8d188c5d690bad506f249ec12d49ed77eba8bcd5c2effb541fa6178016",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "circles": {
+      "3": 10,
+      "6": 10,
+      "9": 20,
+      "12": 20
+    },
+    "assessmentNumbers": [],
+    "gaitChanges": {},
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": [
+        4,
+        7
+      ]
+    }
+  },
+  {
+    "id": "la2-b-pony",
+    "exerciseCount": 23,
+    "arenaHeight": 40,
+    "sourceSha256": "8610ecd4f47f3889d73765b1193ae9fa539db4e7c2a7ef0cc3515539fc5a59b1",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "circles": {
+      "14": 8,
+      "17": 8
+    },
+    "assessmentNumbers": [
+      11
+    ],
+    "gaitChanges": {
+      "16": "trav",
+      "19": "trav"
+    },
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": [
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "id": "la3-a-pony",
+    "exerciseCount": 20,
+    "arenaHeight": 60,
+    "sourceSha256": "bd0eb2fbd74faf0bdd36f6f36ddf3819cf0e03f6e307e56ee4d3b2047f2f27e2",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "circles": {
+      "5": 10,
+      "6": 10
+    },
+    "assessmentNumbers": [],
+    "gaitChanges": {
+      "13": "skridt",
+      "16": "skridt"
+    },
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": []
+    }
+  },
+  {
+    "id": "la3-b-pony",
+    "exerciseCount": 21,
+    "arenaHeight": 40,
+    "sourceSha256": "a83aa7ee7cf40b2f7a1b0c5ea866ddc970bb487752d883e9f5fa456ac81e8de6",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "circles": {
+      "2": 8,
+      "6": 8
+    },
+    "assessmentNumbers": [
+      12
+    ],
+    "gaitChanges": {
+      "16": "skridt"
+    },
+    "movements": {
+      "versade": [],
+      "travers": [],
+      "schenkelvigning": [
+        3,
+        7
+      ]
+    }
+  },
+  {
+    "id": "la4-a-pony",
+    "exerciseCount": 25,
+    "arenaHeight": 60,
+    "sourceSha256": "18ca272cf0288f0bd3ae65dda418b9c9a97d6f55b35bcc65c6f26fd451b67ed8",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "circles": {
+      "2": 10,
+      "6": 10,
+      "15": 10,
+      "20": 10
+    },
+    "assessmentNumbers": [
+      13
+    ],
+    "gaitChanges": {
+      "18": "skridt"
+    },
+    "movements": {
+      "versade": [
+        3,
+        7
+      ],
+      "travers": [],
+      "schenkelvigning": []
+    }
+  },
+  {
+    "id": "la4-b-pony",
+    "exerciseCount": 23,
+    "arenaHeight": 40,
+    "sourceSha256": "18893b1c1c56ab2ac99788ee561458fd13162ddec9521aee7184ea1078f88539",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "circles": {
+      "15": 8,
+      "17": 8
+    },
+    "assessmentNumbers": [
+      11
+    ],
+    "gaitChanges": {
+      "16": "skridt"
+    },
+    "movements": {
+      "versade": [
+        2,
+        4
+      ],
+      "travers": [],
+      "schenkelvigning": []
+    }
+  },
+  {
+    "id": "la5-a-pony",
+    "exerciseCount": 21,
+    "arenaHeight": 60,
+    "sourceSha256": "bfc0cfee1807dbd7031e2b4c5d23275133480597944d32fa1795ea81b0988a93",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "circles": {},
+    "assessmentNumbers": [],
+    "gaitChanges": {
+      "14": "skridt",
+      "16": "skridt"
+    },
+    "movements": {
+      "versade": [
+        4,
+        6
+      ],
+      "travers": [
+        5,
+        7
+      ],
+      "schenkelvigning": []
+    }
+  },
+  {
+    "id": "la6-a-pony",
+    "exerciseCount": 28,
+    "arenaHeight": 60,
+    "sourceSha256": "9726fcc8678c62e567a474d495259feeb96326372db4083f03e9cb2e2731ecb6",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "circles": {
+      "2": 8,
+      "13": 8,
+      "20": 8,
+      "24": 8
+    },
+    "assessmentNumbers": [
+      9
+    ],
+    "gaitChanges": {
+      "22": "skridt"
+    },
+    "movements": {
+      "versade": [
+        3,
+        14
+      ],
+      "travers": [
+        4,
+        15
+      ],
+      "schenkelvigning": []
+    }
+  },
+  {
+    "id": "la6-b-pony",
+    "exerciseCount": 29,
+    "arenaHeight": 40,
+    "sourceSha256": "16996c4cd395ec59d49a4c2c7f4f2c2018aaac4ad0d3604cc581c814c1cf490c",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "circles": {
+      "2": 8,
+      "9": 8,
+      "21": 8,
+      "24": 10
+    },
+    "assessmentNumbers": [
+      15,
+      23
+    ],
+    "gaitChanges": {
+      "22": "skridt"
+    },
+    "movements": {
+      "versade": [
+        3,
+        10
+      ],
+      "travers": [
+        4,
+        11
+      ],
+      "schenkelvigning": []
+    }
+  },
+  {
+    "id": "pri-pony",
+    "exerciseCount": 31,
+    "arenaHeight": 60,
+    "sourceSha256": "33fc2014f71d21924111493f92fbe7e9ecf8471d5b3b6f4ca0d0012d20d91a6e",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "circles": {
+      "4": 8,
+      "10": 8,
+      "18": 8,
+      "20": 8
+    },
+    "assessmentNumbers": [
+      14
+    ],
+    "gaitChanges": {
+      "19": "skridt",
+      "23": "skridt",
+      "26": "skridt"
+    },
+    "movements": {
+      "versade": [
+        3,
+        9
+      ],
+      "travers": [
+        5,
+        11
+      ],
+      "schenkelvigning": []
+    }
+  },
+  {
+    "id": "prt-pony",
+    "exerciseCount": 30,
+    "arenaHeight": 60,
+    "sourceSha256": "3974b97fac44346a08ec49b24053ae687ed82a7303a38b2d5afb2cf50696c974",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ],
+    "circles": {},
+    "assessmentNumbers": [
+      9,
+      19
+    ],
+    "gaitChanges": {
+      "21": "skridt",
+      "24": "skridt",
+      "25": "skridt",
+      "27": "skridt"
+    },
+    "movements": {
+      "versade": [
+        3,
+        12
+      ],
+      "travers": [
+        5,
+        14
+      ],
+      "schenkelvigning": []
+    }
+  },
+  {
+    "id": "prm-pony",
+    "exerciseCount": 31,
+    "arenaHeight": 60,
+    "sourceSha256": "2f53297fc0c27caa1a5a412c2406a752d070d702556a789d263f553ced528057",
+    "sourceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "circles": {
+      "3": 8,
+      "8": 8,
+      "22": 8,
+      "24": 8
+    },
+    "assessmentNumbers": [
+      14
+    ],
+    "gaitChanges": {
+      "18": "skridt",
+      "21": "skridt",
+      "23": "skridt",
+      "25": "skridt"
+    },
+    "movements": {
+      "versade": [
+        4,
+        9
+      ],
+      "travers": [
+        5,
+        6
+      ],
+      "schenkelvigning": []
+    }
+  }
+]

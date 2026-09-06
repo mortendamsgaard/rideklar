@@ -1,0 +1,301 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "title",
+    "audience",
+    "description",
+    "source",
+    "arena",
+    "legendNote",
+    "disclaimer",
+    "referenceDurationSeconds",
+    "maxScore",
+    "exercises"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "audience": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "url",
+        "edition",
+        "documentDate",
+        "checkedOn",
+        "badge",
+        "note"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "edition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "documentDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "checkedOn": {
+          "type": "string",
+          "format": "date"
+        },
+        "badge": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "arena": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "label", "letters"],
+      "properties": {
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "height": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "letters": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["label", "x", "y", "interior"],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              },
+              "interior": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    },
+    "legendNote": {
+      "type": "string",
+      "minLength": 1
+    },
+    "disclaimer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "referenceDurationSeconds": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "maxScore": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "exercises": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/exercise"
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Rideklar program format v1",
+  "$defs": {
+    "segment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["d", "gait"],
+      "properties": {
+        "d": {
+          "type": "string",
+          "pattern": "^M"
+        },
+        "gait": {
+          "enum": ["skridt", "trav", "galop", "neutral"]
+        },
+        "movement": {
+          "enum": ["normal", "schenkelvigning", "versade", "travers"]
+        },
+        "seconds": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "reverse": {
+          "type": "boolean"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "heading": {
+          "type": "number"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "exercise": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "number",
+        "sourceNumber",
+        "title",
+        "location",
+        "gaitLabel",
+        "description",
+        "tip",
+        "note",
+        "segments"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sourceNumber": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "gaitLabel": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tip": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "segments": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/segment"
+          }
+        },
+        "size": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["meters", "description"],
+          "properties": {
+            "meters": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "description": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "assessment": {
+          "type": "boolean"
+        },
+        "restingPoint": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["x", "y", "heading"],
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "heading": {
+              "type": "number"
+            }
+          }
+        },
+        "assessmentSeconds": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "assessment": {
+                "const": true
+              }
+            },
+            "required": ["assessment"]
+          },
+          "then": {
+            "required": ["restingPoint", "assessmentSeconds"]
+          }
+        }
+      ]
+    }
+  }
+}

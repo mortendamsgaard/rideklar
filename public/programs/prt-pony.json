@@ -1,0 +1,822 @@
+{
+  "schemaVersion": 1,
+  "id": "prt-pony",
+  "title": "PRT",
+  "audience": "for pony",
+  "description": "Træn PRT øvelse for øvelse på en 20 × 60-meter-bane. Ridevejene er manuelt fortolket fra DRF’s protokol.",
+  "source": {
+    "title": "DRF PRT 2025",
+    "url": "https://rideforbund.dk/Files/Files/PDF-filer/Dressur/Nye%20protokoller%202025/Pony%20P/PRT_opd_tid.pdf",
+    "edition": "2025",
+    "documentDate": "2026-02-12",
+    "checkedOn": "2026-09-05",
+    "badge": "DRF 2025 · aktuel protokol",
+    "note": "Kilde kontrolleret 2026-09-05 · PDF dateret 2026-02-12. Ridevejene er et selvstændigt træningssupplement."
+  },
+  "arena": {
+    "width": 20,
+    "height": 60,
+    "label": "Bane A · set ovenfra",
+    "letters": [
+      {
+        "label": "A",
+        "x": 10,
+        "y": 62.5,
+        "interior": false
+      },
+      {
+        "label": "C",
+        "x": 10,
+        "y": -2,
+        "interior": false
+      },
+      {
+        "label": "H",
+        "x": -2,
+        "y": 6,
+        "interior": false
+      },
+      {
+        "label": "M",
+        "x": 22,
+        "y": 6,
+        "interior": false
+      },
+      {
+        "label": "K",
+        "x": -2,
+        "y": 54,
+        "interior": false
+      },
+      {
+        "label": "F",
+        "x": 22,
+        "y": 54,
+        "interior": false
+      },
+      {
+        "label": "E",
+        "x": -2,
+        "y": 30.0,
+        "interior": false
+      },
+      {
+        "label": "B",
+        "x": 22,
+        "y": 30.0,
+        "interior": false
+      },
+      {
+        "label": "X",
+        "x": 10,
+        "y": 30.0,
+        "interior": true
+      },
+      {
+        "label": "G",
+        "x": 10,
+        "y": 6,
+        "interior": true
+      },
+      {
+        "label": "D",
+        "x": 10,
+        "y": 54,
+        "interior": true
+      },
+      {
+        "label": "S",
+        "x": -2,
+        "y": 18,
+        "interior": false
+      },
+      {
+        "label": "R",
+        "x": 22,
+        "y": 18,
+        "interior": false
+      },
+      {
+        "label": "V",
+        "x": -2,
+        "y": 42,
+        "interior": false
+      },
+      {
+        "label": "P",
+        "x": 22,
+        "y": 42,
+        "interior": false
+      },
+      {
+        "label": "I",
+        "x": 10,
+        "y": 18,
+        "interior": true
+      },
+      {
+        "label": "L",
+        "x": 10,
+        "y": 42,
+        "interior": true
+      }
+    ]
+  },
+  "legendNote": "Grøn: skridt. Blå: trav. Rød: galop. Stiplet: schenkelvigning. Zigzag: versade. Hel linje: travers.",
+  "disclaimer": "Et selvstændigt træningssupplement til DRF’s officielle protokol. Rideveje og huskepunkter er vejledende; brug dem sammen med din underviser.",
+  "referenceDurationSeconds": 380,
+  "maxScore": 560,
+  "exercises": [
+    {
+      "id": "exercise-1",
+      "number": 1,
+      "sourceNumber": 1,
+      "title": "Indridning i samlet galop",
+      "location": "A X",
+      "gaitLabel": "Galop / Parade / tilbage / Trav",
+      "description": "Indridning i samlet galop Parade - hilsen - samlet trav",
+      "tip": "Se mod C og hold ponyen lige mellem dine hjælpere.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M10 60 L10 30",
+          "gait": "galop"
+        },
+        {
+          "d": "M10 30",
+          "gait": "neutral",
+          "seconds": 2,
+          "hidden": true,
+          "heading": -90.0,
+          "label": "Parade og hilsen"
+        },
+        {
+          "d": "M10 30 L10 3",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-2",
+      "number": 2,
+      "sourceNumber": 2,
+      "title": "Højre volte og middeltrav",
+      "location": "C RK KAF",
+      "gaitLabel": "Trav",
+      "description": "Højre volte Middeltrav Samlet trav",
+      "tip": "Bed om længere trin eller spring uden at lade rytmen blive hurtigere.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M10 3 L10 1 Q10 0 11 0 L18 0 Q20 0 20 2 L20 4 Q20 6 20 8 L20 18",
+          "gait": "trav"
+        },
+        {
+          "d": "M20 18 L0 54",
+          "gait": "trav"
+        },
+        {
+          "d": "M0 54 L0 58 Q0 60 2 60 L8 60 Q10 60 12 60 L18 60 Q20 60 20 58 L20 54",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-3",
+      "number": 3,
+      "sourceNumber": 3,
+      "title": "Versade til venstre",
+      "location": "FB",
+      "gaitLabel": "Trav",
+      "description": "Versade bøjet til venstre",
+      "tip": "Bevar bøjningen omkring indvendige schenkel og en jævn vinkel langs sporet.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M20 54 L20 30",
+          "gait": "trav",
+          "movement": "versade"
+        }
+      ]
+    },
+    {
+      "id": "exercise-4",
+      "number": 4,
+      "sourceNumber": 4,
+      "title": "To 10-meter-halvvolter",
+      "location": "BX XE",
+      "gaitLabel": "Trav",
+      "description": "½ volte til venstre (10 meter) ½ volte til højre (10 meter)",
+      "tip": "Se en kvart volte frem, og bevar bøjning og rytme hele vejen rundt.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M20 30 A5 5 0 0 0 10 30",
+          "gait": "trav"
+        },
+        {
+          "d": "M10 30 A5 5 0 0 1 0 30",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-5",
+      "number": 5,
+      "sourceNumber": 5,
+      "title": "Sidetraversade til højre",
+      "location": "EG G C",
+      "gaitLabel": "Trav",
+      "description": "Sidetraversade til højre Lige ad midterlinjen Højre volte",
+      "tip": "Se mod slutpunktet, og lad forparten føre lidt i bevægelsesretningen.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M0 30 L10 6",
+          "gait": "trav",
+          "movement": "travers"
+        },
+        {
+          "d": "M10 6 L10 0.66667 Q10 0 10.66667 0 L12 0",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-6",
+      "number": 6,
+      "sourceNumber": 6,
+      "title": "Middelskridt og vending ved M",
+      "location": "Mellem C & M M",
+      "gaitLabel": "Trav / Skridt",
+      "description": "Middelskridt Højre om",
+      "tip": "Forbered overgangen før bogstavet og bevar aktiviteten i den nye gangart.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M12 0 L16 0",
+          "gait": "trav"
+        },
+        {
+          "d": "M16 0 L18.66667 0 Q20 0 20 1.33333 L20 4 Q20 6 18 6 L10 6",
+          "gait": "skridt"
+        }
+      ]
+    },
+    {
+      "id": "exercise-7",
+      "number": 7,
+      "sourceNumber": 7,
+      "title": "Halvpirouette til højre",
+      "location": "Mellem G & H",
+      "gaitLabel": "Skridt",
+      "description": "(samlet skridt) ½ pirouette til højre, fortsæt i middelskridt",
+      "tip": "Kort skridten, men hold bagbenene aktive gennem hele vendingen.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende. Vendingens lille bue viser ponyens midte; bagparten er omdrejningspunkt.",
+      "segments": [
+        {
+          "d": "M10 6 L5 6",
+          "gait": "skridt"
+        },
+        {
+          "d": "M5 6 A0.6 0.6 0 0 1 5 4.8",
+          "gait": "skridt"
+        },
+        {
+          "d": "M5 4.8 L10 4.8",
+          "gait": "skridt"
+        }
+      ]
+    },
+    {
+      "id": "exercise-8",
+      "number": 8,
+      "sourceNumber": 8,
+      "title": "Halvpirouette til venstre",
+      "location": "Mellem G & M GHS",
+      "gaitLabel": "Skridt",
+      "description": "(samlet skridt) ½ pirouette til venstre, fortsæt i middelskridt (middelskridt)",
+      "tip": "Kort skridten, men hold bagbenene aktive gennem hele vendingen.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende. Vendingens lille bue viser ponyens midte; bagparten er omdrejningspunkt.",
+      "segments": [
+        {
+          "d": "M10 4.8 L15 4.8",
+          "gait": "skridt"
+        },
+        {
+          "d": "M15 4.8 A0.6 0.6 0 0 0 15 3.6",
+          "gait": "skridt"
+        },
+        {
+          "d": "M15 3.6 L1.97488 5.68402 Q0 6 0 8 L0 18",
+          "gait": "skridt"
+        }
+      ]
+    },
+    {
+      "id": "exercise-9",
+      "number": 9,
+      "sourceNumber": 9,
+      "title": "Bedømmelse af middelskridten",
+      "location": "Bedømmelse af foregående øvelse",
+      "gaitLabel": "Skridt",
+      "description": "Middelskridt fra G og til overgang til fri skridt ved S",
+      "tip": "Dette punkt bedømmer det, du netop har redet; øvelsen skal ikke gentages.",
+      "note": "Særskilt bedømmelsespunkt. Ridevejen gentages ikke under afspilning.",
+      "segments": [
+        {
+          "d": "M10 6 L5 6",
+          "gait": "skridt"
+        },
+        {
+          "d": "M5 6 A0.6 0.6 0 0 1 5 4.8",
+          "gait": "skridt"
+        },
+        {
+          "d": "M5 4.8 L10 4.8",
+          "gait": "skridt"
+        },
+        {
+          "d": "M10 4.8 L15 4.8",
+          "gait": "skridt"
+        },
+        {
+          "d": "M15 4.8 A0.6 0.6 0 0 0 15 3.6",
+          "gait": "skridt"
+        },
+        {
+          "d": "M15 3.6 L1.97488 5.68402 Q0 6 0 8 L0 18",
+          "gait": "skridt"
+        }
+      ],
+      "assessment": true,
+      "restingPoint": {
+        "x": 0.0,
+        "y": 18.0,
+        "heading": 90.0
+      },
+      "assessmentSeconds": 3
+    },
+    {
+      "id": "exercise-10",
+      "number": 10,
+      "sourceNumber": 10,
+      "title": "Fri skridt fra S til P",
+      "location": "SP",
+      "gaitLabel": "Skridt",
+      "description": "Fri skridt",
+      "tip": "Giv gradvis længere tøjler, så ponyen søger frem og ned med samme takt.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M0 18 L20 42",
+          "gait": "skridt"
+        }
+      ]
+    },
+    {
+      "id": "exercise-11",
+      "number": 11,
+      "sourceNumber": 11,
+      "title": "Middelskridt og samlet trav",
+      "location": "PF F FAK",
+      "gaitLabel": "Skridt / Trav",
+      "description": "Middelskridt Overgang til samlet trav Samlet trav",
+      "tip": "Forbered overgangen før bogstavet og bevar aktiviteten i den nye gangart.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M20 42 L20 54",
+          "gait": "skridt"
+        },
+        {
+          "d": "M20 54 L20 58 Q20 60 18 60 L12 60 Q10 60 8 60 L2 60 Q0 60 0 58 L0 54",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-12",
+      "number": 12,
+      "sourceNumber": 12,
+      "title": "Versade til højre",
+      "location": "KE",
+      "gaitLabel": "Trav",
+      "description": "Versade bøjet til højre",
+      "tip": "Bevar bøjningen omkring indvendige schenkel og en jævn vinkel langs sporet.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M0 54 L0 30",
+          "gait": "trav",
+          "movement": "versade"
+        }
+      ]
+    },
+    {
+      "id": "exercise-13",
+      "number": 13,
+      "sourceNumber": 13,
+      "title": "To 10-meter-halvvolter",
+      "location": "EX XB",
+      "gaitLabel": "Trav",
+      "description": "½ volte til højre (10 meter) ½ volte til venstre (10 meter)",
+      "tip": "Se en kvart volte frem, og bevar bøjning og rytme hele vejen rundt.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M0 30 A5 5 0 0 1 10 30",
+          "gait": "trav"
+        },
+        {
+          "d": "M10 30 A5 5 0 0 0 20 30",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-14",
+      "number": 14,
+      "sourceNumber": 14,
+      "title": "Sidetraversade til venstre",
+      "location": "BG G C",
+      "gaitLabel": "Trav",
+      "description": "Sidertraversade til venstre Lige ad midterlinjen Venstre volte",
+      "tip": "Se mod slutpunktet, og lad forparten føre lidt i bevægelsesretningen.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M20 30 L10 6",
+          "gait": "trav",
+          "movement": "travers"
+        },
+        {
+          "d": "M10 6 L10 2 Q10 0 8 0 L2 0 Q0 0 0 2 L0 6",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-15",
+      "number": 15,
+      "sourceNumber": 15,
+      "title": "Fri trav mod F",
+      "location": "HXF F",
+      "gaitLabel": "Trav",
+      "description": "Fri trav Samlet trav",
+      "tip": "Bed om længere trin eller spring uden at lade rytmen blive hurtigere.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M0 6 L20 54",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-16",
+      "number": 16,
+      "sourceNumber": 16,
+      "title": "Overgange og samlet trav",
+      "location": "FA",
+      "gaitLabel": "Trav",
+      "description": "Overgang ved H & F Samlet trav",
+      "tip": "Forbered overgangen før bogstavet og bevar aktiviteten i den nye gangart.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M20 54 L20 58 Q20 60 18 60 L10 60",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-17",
+      "number": 17,
+      "sourceNumber": 17,
+      "title": "Parade, fem skridt tilbage og galop",
+      "location": "A AK",
+      "gaitLabel": "Parade / tilbage / Galop",
+      "description": "Parade - tilbagetrædning 5 skridt - samlet galop Samlet galop",
+      "tip": "Tæl de diagonale skridt tilbage; rid straks lige og villigt frem igen.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M10 60",
+          "gait": "neutral",
+          "seconds": 2,
+          "hidden": true,
+          "heading": 180.0,
+          "label": "Parade"
+        },
+        {
+          "d": "M10 60 L12.5 60",
+          "gait": "neutral",
+          "reverse": true,
+          "seconds": 3,
+          "label": "5 skridt tilbage"
+        },
+        {
+          "d": "M12.5 60 L10 60",
+          "gait": "galop"
+        },
+        {
+          "d": "M10 60 L2 60 Q0 60 0 58 L0 54",
+          "gait": "galop"
+        }
+      ]
+    },
+    {
+      "id": "exercise-18",
+      "number": 18,
+      "sourceNumber": 18,
+      "title": "Fri galop til H",
+      "location": "KH H",
+      "gaitLabel": "Galop",
+      "description": "Fri galop Samlet galop",
+      "tip": "Bed om længere trin eller spring uden at lade rytmen blive hurtigere.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M0 54 L0 6",
+          "gait": "galop"
+        }
+      ]
+    },
+    {
+      "id": "exercise-19",
+      "number": 19,
+      "sourceNumber": 19,
+      "title": "Bedømmelse af overgange",
+      "location": "Bedømmelse af foregående øvelse",
+      "gaitLabel": "Galop",
+      "description": "Overgang ved K & H",
+      "tip": "Dette punkt bedømmer det, du netop har redet; øvelsen skal ikke gentages.",
+      "note": "Særskilt bedømmelsespunkt. Ridevejen gentages ikke under afspilning.",
+      "segments": [
+        {
+          "d": "M0 54 L0 6",
+          "gait": "galop"
+        }
+      ],
+      "assessment": true,
+      "restingPoint": {
+        "x": 0.0,
+        "y": 6.0,
+        "heading": -90.0
+      },
+      "assessmentSeconds": 3
+    },
+    {
+      "id": "exercise-20",
+      "number": 20,
+      "sourceNumber": 20,
+      "title": "Volte tilbage og kontragalop",
+      "location": "HG SEVKA",
+      "gaitLabel": "Galop",
+      "description": "Volte tilbage (10 meter) Kontra galop",
+      "tip": "Behold galoppens stilling og rytme, selv om ridevejen skifter retning.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M0 6 A5 5 0 0 1 10 6",
+          "gait": "galop"
+        },
+        {
+          "d": "M10 6 L0 18",
+          "gait": "galop"
+        },
+        {
+          "d": "M0 18 L0 28 Q0 30 0 32 L0 40 Q0 42 0 44 L0 54",
+          "gait": "galop"
+        },
+        {
+          "d": "M0 54 L0 58 Q0 60 2 60 L7 60",
+          "gait": "galop"
+        }
+      ]
+    },
+    {
+      "id": "exercise-21",
+      "number": 21,
+      "sourceNumber": 21,
+      "title": "Galopskift ved A",
+      "location": "A AF",
+      "gaitLabel": "Skridt / Galop",
+      "description": "Changér galoppen igennem skridt (3-5 skridt) Samlet galop",
+      "tip": "Ret ponyen ud, tæl de angivne trin, og forbered det nye anspring.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M7 60 L13 60",
+          "gait": "skridt",
+          "label": "3–5 skridt"
+        },
+        {
+          "d": "M13 60 L18 60 Q20 60 20 58 L20 54",
+          "gait": "galop"
+        }
+      ]
+    },
+    {
+      "id": "exercise-22",
+      "number": 22,
+      "sourceNumber": 22,
+      "title": "Diagonal med eftergift",
+      "location": "FLE",
+      "gaitLabel": "Galop",
+      "description": "Samlet galop Mellem F & E giv efter og tag tøjlen op over 3 galopspring",
+      "tip": "Før hænderne kort frem, mens sæde og tempo forbliver uændret.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M20 54 L0 30",
+          "gait": "galop"
+        }
+      ]
+    },
+    {
+      "id": "exercise-23",
+      "number": 23,
+      "sourceNumber": 23,
+      "title": "Kontragalop til C",
+      "location": "ESHC",
+      "gaitLabel": "Galop",
+      "description": "Kontragalop",
+      "tip": "Behold galoppens stilling og rytme, selv om ridevejen skifter retning.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M0 30 L0 20 Q0 18 0 16 L0 6",
+          "gait": "galop"
+        },
+        {
+          "d": "M0 6 L0 2 Q0 0 2 0 L7 0",
+          "gait": "galop"
+        }
+      ]
+    },
+    {
+      "id": "exercise-24",
+      "number": 24,
+      "sourceNumber": 24,
+      "title": "Galopskift ved C",
+      "location": "C CMR",
+      "gaitLabel": "Skridt / Galop",
+      "description": "Changér galoppen igennem skridt (3-5 skridt) Samlet galop",
+      "tip": "Ret ponyen ud, tæl de angivne trin, og forbered det nye anspring.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M7 0 L13 0",
+          "gait": "skridt",
+          "label": "3–5 skridt"
+        },
+        {
+          "d": "M13 0 L18 0 Q20 0 20 2 L20 4 Q20 6 20 8 L20 18",
+          "gait": "galop"
+        }
+      ]
+    },
+    {
+      "id": "exercise-25",
+      "number": 25,
+      "sourceNumber": 25,
+      "title": "Halvvolter og galopskift ved I",
+      "location": "RI I IS",
+      "gaitLabel": "Galop / Skridt",
+      "description": "½ volte til højre (10 meter) Changér galoppen igennem skridt (3-5 skridt) ½ volte til venstre (10 meter)",
+      "tip": "Ret ponyen ud, tæl de angivne trin, og forbered det nye anspring.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M20 18 A5 5 0 0 1 10.4 19.95959",
+          "gait": "galop"
+        },
+        {
+          "d": "M10.4 19.95959 A5 5 0 0 1 10 18 A5 5 0 0 0 9.6 16.04041",
+          "gait": "skridt",
+          "label": "3–5 skridt"
+        },
+        {
+          "d": "M9.6 16.04041 A5 5 0 0 0 0 18",
+          "gait": "galop"
+        }
+      ]
+    },
+    {
+      "id": "exercise-26",
+      "number": 26,
+      "sourceNumber": 26,
+      "title": "Middelgalop fra S til V",
+      "location": "SV V",
+      "gaitLabel": "Galop",
+      "description": "Middelgalop Samlet galop",
+      "tip": "Bed om længere trin eller spring uden at lade rytmen blive hurtigere.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M0 18 L0 42",
+          "gait": "galop"
+        }
+      ]
+    },
+    {
+      "id": "exercise-27",
+      "number": 27,
+      "sourceNumber": 27,
+      "title": "Halvvolter og galopskift ved L",
+      "location": "VL L LP PFA",
+      "gaitLabel": "Galop / Skridt",
+      "description": "½ volte til venstre (10 meter) Changér galoppen igennem skridt (3-5 skridt) ½ volte til højre (10 meter) Samlet galop",
+      "tip": "Ret ponyen ud, tæl de angivne trin, og forbered det nye anspring.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M0 42 A5 5 0 0 0 9.6 43.95959",
+          "gait": "galop"
+        },
+        {
+          "d": "M9.6 43.95959 A5 5 0 0 0 10 42 A5 5 0 0 1 10.4 40.04041",
+          "gait": "skridt",
+          "label": "3–5 skridt"
+        },
+        {
+          "d": "M10.4 40.04041 A5 5 0 0 1 20 42",
+          "gait": "galop"
+        },
+        {
+          "d": "M20 42 L20 52 Q20 54 20 56 L20 58 Q20 60 18 60 L10 60",
+          "gait": "galop"
+        }
+      ]
+    },
+    {
+      "id": "exercise-28",
+      "number": 28,
+      "sourceNumber": 28,
+      "title": "Trav fra A",
+      "location": "A AV",
+      "gaitLabel": "Trav",
+      "description": "Overgang til trav Samlet trav",
+      "tip": "Forbered overgangen før bogstavet og bevar aktiviteten i den nye gangart.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M10 60 L2 60 Q0 60 0 58 L0 56 Q0 54 0 52 L0 42",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-29",
+      "number": 29,
+      "sourceNumber": 29,
+      "title": "Stræk på halvvolten",
+      "location": "VP Mellem P & F",
+      "gaitLabel": "Trav",
+      "description": "Halvcirkel 20 meter - tydelig gradvis forlængelse af tøjlerne - letridning Tag tøjlerne op - nedsidning",
+      "tip": "Giv gradvis længere tøjler, så ponyen søger frem og ned med samme takt.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M0 42 A10 10 0 0 1 20 42",
+          "gait": "trav"
+        },
+        {
+          "d": "M20 42 L20 48",
+          "gait": "trav"
+        }
+      ]
+    },
+    {
+      "id": "exercise-30",
+      "number": 30,
+      "sourceNumber": 30,
+      "title": "Midterlinje og afslutning",
+      "location": "(P)F(A) A X",
+      "gaitLabel": "Trav / Parade / tilbage",
+      "description": "Samlet trav Vend ad midterlinjen Parade - stilstand - hilsen",
+      "tip": "Forbered paraden med en halv parade, og behold ponyen lige og rolig.",
+      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
+      "segments": [
+        {
+          "d": "M20 48 L20 54",
+          "gait": "trav"
+        },
+        {
+          "d": "M20 54 L20 58 Q20 60 18 60 L12 60 Q10 60 10 58 L10 30",
+          "gait": "trav"
+        },
+        {
+          "d": "M10 30",
+          "gait": "neutral",
+          "seconds": 2,
+          "hidden": true,
+          "heading": -90.0,
+          "label": "Parade og hilsen"
+        }
+      ]
+    }
+  ]
+}

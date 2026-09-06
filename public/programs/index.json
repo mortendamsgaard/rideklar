@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "defaultId": "la4-b-pony",
+  "programs": [
+    {
+      "id": "ld1-b-pony",
+      "label": "LD1-B · pony",
+      "file": "/programs/ld1-b-pony.json"
+    },
+    {
+      "id": "ld2-b-pony",
+      "label": "LD2-B · pony",
+      "file": "/programs/ld2-b-pony.json"
+    },
+    {
+      "id": "lc1-a-pony",
+      "label": "LC1-A · pony",
+      "file": "/programs/lc1-a-pony.json"
+    },
+    {
+      "id": "lc1-b-pony",
+      "label": "LC1-B · pony",
+      "file": "/programs/lc1-b-pony.json"
+    },
+    {
+      "id": "lc2-a-pony",
+      "label": "LC2-A · pony",
+      "file": "/programs/lc2-a-pony.json"
+    },
+    {
+      "id": "lc2-b-pony",
+      "label": "LC2-B · pony",
+      "file": "/programs/lc2-b-pony.json"
+    },
+    {
+      "id": "lc3-a-pony",
+      "label": "LC3-A · pony",
+      "file": "/programs/lc3-a-pony.json"
+    },
+    {
+      "id": "lc3-b-pony",
+      "label": "LC3-B · pony",
+      "file": "/programs/lc3-b-pony.json"
+    },
+    {
+      "id": "lb1-a-pony",
+      "label": "LB1-A · pony",
+      "file": "/programs/lb1-a-pony.json"
+    },
+    {
+      "id": "lb1-b-pony",
+      "label": "LB1-B · pony",
+      "file": "/programs/lb1-b-pony.json"
+    },
+    {
+      "id": "lb2-a-pony",
+      "label": "LB2-A · pony",
+      "file": "/programs/lb2-a-pony.json"
+    },
+    {
+      "id": "lb2-b-pony",
+      "label": "LB2-B · pony",
+      "file": "/programs/lb2-b-pony.json"
+    },
+    {
+      "id": "lb3-a-pony",
+      "label": "LB3-A · pony",
+      "file": "/programs/lb3-a-pony.json"
+    },
+    {
+      "id": "lb3-b-pony",
+      "label": "LB3-B · pony",
+      "file": "/programs/lb3-b-pony.json"
+    },
+    {
+      "id": "la1-a-pony",
+      "label": "LA1-A · pony",
+      "file": "/programs/la1-a-pony.json"
+    },
+    {
+      "id": "la1-b-pony",
+      "label": "LA1-B · pony",
+      "file": "/programs/la1-b-pony.json"
+    },
+    {
+      "id": "la2-a-pony",
+      "label": "LA2-A · pony",
+      "file": "/programs/la2-a-pony.json"
+    },
+    {
+      "id": "la2-b-pony",
+      "label": "LA2-B · pony",
+      "file": "/programs/la2-b-pony.json"
+    },
+    {
+      "id": "la3-a-pony",
+      "label": "LA3-A · pony",
+      "file": "/programs/la3-a-pony.json"
+    },
+    {
+      "id": "la3-b-pony",
+      "label": "LA3-B · pony",
+      "file": "/programs/la3-b-pony.json"
+    },
+    {
+      "id": "la4-a-pony",
+      "label": "LA4-A · pony",
+      "file": "/programs/la4-a-pony.json"
+    },
+    {
+      "id": "la4-b-pony",
+      "label": "LA4-B · pony",
+      "file": "/programs/la4-b-pony.json"
+    },
+    {
+      "id": "la5-a-pony",
+      "label": "LA5-A · pony",
+      "file": "/programs/la5-a-pony.json"
+    },
+    {
+      "id": "la6-a-pony",
+      "label": "LA6-A · pony",
+      "file": "/programs/la6-a-pony.json"
+    },
+    {
+      "id": "la6-b-pony",
+      "label": "LA6-B · pony",
+      "file": "/programs/la6-b-pony.json"
+    },
+    {
+      "id": "pri-pony",
+      "label": "PRI · pony",
+      "file": "/programs/pri-pony.json"
+    },
+    {
+      "id": "prt-pony",
+      "label": "PRT · pony",
+      "file": "/programs/prt-pony.json"
+    },
+    {
+      "id": "prm-pony",
+      "label": "PRM · pony",
+      "file": "/programs/prm-pony.json"
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "kind": "freestyle",
+  "id": "la-kur-pony",
+  "title": "LA kür",
+  "audience": "for pony",
+  "description": "Krav til en selvvalgt kür. Der findes ingen fast DRF-ridevej at afspille.",
+  "source": {
+    "title": "DRF LA kür",
+    "url": "https://rideforbund.dk/Files/Files/PDF-filer/Dressur/LA%20K%C3%9CR%20-%20110722.pdf",
+    "documentDate": "2022-07-11",
+    "checkedOn": "2026-09-05"
+  },
+  "duration": {
+    "minSeconds": 270,
+    "maxSeconds": 300,
+    "requiresClarification": false
+  },
+  "maxScore": 370,
+  "technicalRequirements": [
+    {
+      "sourceNumber": 1,
+      "title": "Middelskridt",
+      "gait": "skridt",
+      "description": "Middelskridt.",
+      "tip": "Vis mindst 20 meter sammenhængende skridt på ét spor.",
+      "coefficient": 2,
+      "maxMark": 10,
+      "minimumDistanceMeters": 20
+    },
+    {
+      "sourceNumber": 2,
+      "title": "Arbejdstrav",
+      "gait": "trav",
+      "description": "Arbejdstrav.",
+      "tip": "Bevar en jævn takt og en smidig ryg.",
+      "coefficient": 1,
+      "maxMark": 10
+    },
+    {
+      "sourceNumber": 3,
+      "title": "10-meter-volte til venstre",
+      "gait": "trav",
+      "description": "10-meter-volte til venstre.",
+      "tip": "Se rundt på volten og hold diameteren på 10 meter.",
+      "coefficient": 1,
+      "maxMark": 10,
+      "circleDiameterMeters": 10,
+      "direction": "venstre"
+    },
+    {
+      "sourceNumber": 4,
+      "title": "10-meter-volte til højre",
+      "gait": "trav",
+      "description": "10-meter-volte til højre.",
+      "tip": "Se rundt på volten og hold diameteren på 10 meter.",
+      "coefficient": 1,
+      "maxMark": 10,
+      "circleDiameterMeters": 10,
+      "direction": "højre"
+    },
+    {
+      "sourceNumber": 5,
+      "title": "Schenkelvigning i trav til venstre",
+      "gait": "trav",
+      "description": "Schenkelvigning i trav til venstre.",
+      "tip": "Lad forparten føre lidt og bevar fremaddriften.",
+      "coefficient": 2,
+      "maxMark": 10,
+      "movement": "schenkelvigning",
+      "direction": "venstre"
+    },
+    {
+      "sourceNumber": 6,
+      "title": "Schenkelvigning i trav til højre",
+      "gait": "trav",
+      "description": "Schenkelvigning i trav til højre.",
+      "tip": "Lad forparten føre lidt og bevar fremaddriften.",
+      "coefficient": 2,
+      "maxMark": 10,
+      "movement": "schenkelvigning",
+      "direction": "højre"
+    },
+    {
+      "sourceNumber": 7,
+      "title": "Middeltrav",
+      "gait": "trav",
+      "description": "Middeltrav.",
+      "tip": "Vis længere trin med uændret rytme.",
+      "coefficient": 1,
+      "maxMark": 10
+    },
+    {
+      "sourceNumber": 8,
+      "title": "Arbejdsgalop",
+      "gait": "galop",
+      "description": "Arbejdsgalop.",
+      "tip": "Bevar rytme, bøjning og balance.",
+      "coefficient": 1,
+      "maxMark": 10
+    },
+    {
+      "sourceNumber": 9,
+      "title": "Middelgalop",
+      "gait": "galop",
+      "description": "Middelgalop.",
+      "tip": "Vis længere spring og en tydelig overgang tilbage.",
+      "coefficient": 1,
+      "maxMark": 10
+    },
+    {
+      "sourceNumber": 10,
+      "title": "Kontragalop til venstre",
+      "gait": "galop",
+      "description": "Kontragalop til venstre.",
+      "tip": "Vis mindst 20 meter og behold venstregaloppens stilling.",
+      "coefficient": 1,
+      "maxMark": 10,
+      "minimumDistanceMeters": 20,
+      "direction": "venstre"
+    },
+    {
+      "sourceNumber": 11,
+      "title": "Kontragalop til højre",
+      "gait": "galop",
+      "description": "Kontragalop til højre.",
+      "tip": "Vis mindst 20 meter og behold højregaloppens stilling.",
+      "coefficient": 1,
+      "maxMark": 10,
+      "minimumDistanceMeters": 20,
+      "direction": "højre"
+    },
+    {
+      "sourceNumber": 12,
+      "title": "Galopskift gennem skridt fra højre til venstre",
+      "gait": "galop",
+      "description": "Galopskift gennem skridt fra højre til venstre.",
+      "tip": "Vis tydelig skridt og et roligt nyt anspring.",
+      "coefficient": 1,
+      "maxMark": 10,
+      "direction": "højre til venstre"
+    },
+    {
+      "sourceNumber": 13,
+      "title": "Galopskift gennem skridt fra venstre til højre",
+      "gait": "galop",
+      "description": "Galopskift gennem skridt fra venstre til højre.",
+      "tip": "Vis tydelig skridt og et roligt nyt anspring.",
+      "coefficient": 1,
+      "maxMark": 10,
+      "direction": "venstre til højre"
+    },
+    {
+      "sourceNumber": 14,
+      "title": "Indridning og indridnings- og afslutningsparade",
+      "gait": "neutral",
+      "description": "Indridning og indridnings- og afslutningsparade.",
+      "tip": "Planlæg en lige indridning og rolige parader med hilsen.",
+      "coefficient": 1,
+      "maxMark": 10
+    }
+  ],
+  "artisticAssessments": [
+    {
+      "sourceNumber": 16,
+      "title": "Rytme",
+      "description": "Takt, energi og elasticitet gennem hele programmet.",
+      "maxMark": 10,
+      "coefficient": 4
+    },
+    {
+      "sourceNumber": 17,
+      "title": "Harmoni",
+      "description": "Samspil mellem pony og rytter.",
+      "maxMark": 10,
+      "coefficient": 4
+    },
+    {
+      "sourceNumber": 18,
+      "title": "Koreografi",
+      "description": "Udnyttelse af banen og en varieret koreografi.",
+      "maxMark": 10,
+      "coefficient": 4
+    },
+    {
+      "sourceNumber": 19,
+      "title": "Sværhedsgrad",
+      "description": "Velvalgte udfordringer, der passer til ekvipagens niveau.",
+      "maxMark": 10,
+      "coefficient": 4
+    },
+    {
+      "sourceNumber": 20,
+      "title": "Valg af musik",
+      "description": "Musikkens egnethed og samspil med bevægelserne.",
+      "maxMark": 10,
+      "coefficient": 4
+    }
+  ],
+  "notes": [
+    "Rækkefølgen i filen følger bedømmelsesarket. Rytteren vælger selv ridevej og rækkefølge."
+  ]
+}

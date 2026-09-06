@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "kind": "freestyle",
+  "id": "la6-kur-pony",
+  "title": "LA6 kür",
+  "audience": "for pony",
+  "description": "Krav til en selvvalgt kür. Der findes ingen fast DRF-ridevej at afspille.",
+  "source": {
+    "title": "DRF LA6 kür",
+    "url": "https://rideforbund.dk/Files/Files/PDF-filer/Dressur/LA6%20K%C3%9CR%20-%20110722.pdf",
+    "documentDate": "2022-07-11",
+    "checkedOn": "2026-09-05"
+  },
+  "duration": {
+    "minSeconds": 270,
+    "maxSeconds": 300,
+    "requiresClarification": true,
+    "alternativeMinSecondsInSource": 280
+  },
+  "maxScore": 400,
+  "technicalRequirements": [
+    {
+      "sourceNumber": 1,
+      "title": "Samlet skridt",
+      "gait": "skridt",
+      "description": "Samlet skridt.",
+      "tip": "Vis mindst 20 meter med aktive bagben og tydelig firetakt.",
+      "coefficient": 1,
+      "maxMark": 10,
+      "minimumDistanceMeters": 20
+    },
+    {
+      "sourceNumber": 2,
+      "title": "Fri skridt",
+      "gait": "skridt",
+      "description": "Fri skridt.",
+      "tip": "Vis mindst 20 meter med friere form og fremadsøgning.",
+      "coefficient": 2,
+      "maxMark": 10,
+      "minimumDistanceMeters": 20
+    },
+    {
+      "sourceNumber": 3,
+      "title": "Halvpirouette i samlet skridt",
+      "gait": "skridt",
+      "description": "Halvpirouette i samlet skridt.",
+      "tip": "Bevar skridttakten gennem en centreret halv vending.",
+      "coefficient": 1,
+      "maxMark": 10,
+      "direction": "højre og/eller venstre"
+    },
+    {
+      "sourceNumber": 4,
+      "title": "Versade bøjet til venstre i samlet trav",
+      "gait": "trav",
+      "description": "Versade bøjet til venstre i samlet trav.",
+      "tip": "Vis mindst 12 meter med ensartet vinkel og bøjning.",
+      "coefficient": 1,
+      "maxMark": 10,
+      "movement": "versade",
+      "minimumDistanceMeters": 12,
+      "direction": "venstre"
+    },
+    {
+      "sourceNumber": 5,
+      "title": "Versade bøjet til højre i samlet trav",
+      "gait": "trav",
+      "description": "Versade bøjet til højre i samlet trav.",
+      "tip": "Vis mindst 12 meter med ensartet vinkel og bøjning.",
+      "coefficient": 1,
+      "maxMark": 10,
+      "movement": "versade",
+      "minimumDistanceMeters": 12,
+      "direction": "højre"
+    },
+    {
+      "sourceNumber": 6,
+      "title": "Sidetraversade til venstre i samlet trav",
+      "gait": "trav",
+      "description": "Sidetraversade til venstre i samlet trav.",
+      "tip": "Lad forparten føre lidt i bevægelsesretningen.",
+      "coefficient": 2,
+      "maxMark": 10,
+      "movement": "travers",
+      "direction": "venstre"
+    },
+    {
+      "sourceNumber": 7,
+      "title": "Sidetraversade til højre i samlet trav",
+      "gait": "trav",
+      "description": "Sidetraversade til højre i samlet trav.",
+      "tip": "Lad forparten føre lidt i bevægelsesretningen.",
+      "coefficient": 2,
+      "maxMark": 10,
+      "movement": "travers",
+      "direction": "højre"
+    },
+    {
+      "sourceNumber": 8,
+      "title": "Fri trav",
+      "gait": "trav",
+      "description": "Fri trav.",
+      "tip": "Vis rummelighed og en tydelig forskel fra samlet trav.",
+      "coefficient": 1,
+      "maxMark": 10
+    },
+    {
+      "sourceNumber": 9,
+      "title": "Kontragalop til venstre",
+      "gait": "galop",
+      "description": "Kontragalop til venstre.",
+      "tip": "Vis mindst 20 meter med bæring og bevaret galop.",
+      "coefficient": 1,
+      "maxMark": 10,
+      "minimumDistanceMeters": 20,
+      "direction": "venstre"
+    },
+    {
+      "sourceNumber": 10,
+      "title": "Kontragalop til højre",
+      "gait": "galop",
+      "description": "Kontragalop til højre.",
+      "tip": "Vis mindst 20 meter med bæring og bevaret galop.",
+      "coefficient": 1,
+      "maxMark": 10,
+      "minimumDistanceMeters": 20,
+      "direction": "højre"
+    },
+    {
+      "sourceNumber": 11,
+      "title": "Galopskift gennem 3–5 skridt fra venstre til højre",
+      "gait": "galop",
+      "description": "Galopskift gennem 3–5 skridt fra venstre til højre.",
+      "tip": "Tæl 3–5 klare skridt mellem galopperne.",
+      "coefficient": 2,
+      "maxMark": 10,
+      "direction": "venstre til højre",
+      "walkSteps": {
+        "min": 3,
+        "max": 5
+      }
+    },
+    {
+      "sourceNumber": 12,
+      "title": "Galopskift gennem 3–5 skridt fra højre til venstre",
+      "gait": "galop",
+      "description": "Galopskift gennem 3–5 skridt fra højre til venstre.",
+      "tip": "Tæl 3–5 klare skridt mellem galopperne.",
+      "coefficient": 2,
+      "maxMark": 10,
+      "direction": "højre til venstre",
+      "walkSteps": {
+        "min": 3,
+        "max": 5
+      }
+    },
+    {
+      "sourceNumber": 13,
+      "title": "Samlet galop med 8-meter-volte",
+      "gait": "galop",
+      "description": "Samlet galop med 8-meter-volte.",
+      "tip": "Vis en rund 8-meter-volte med uændret balance.",
+      "coefficient": 1,
+      "maxMark": 10,
+      "circleDiameterMeters": 8,
+      "direction": "højre og/eller venstre"
+    },
+    {
+      "sourceNumber": 14,
+      "title": "Fri galop",
+      "gait": "galop",
+      "description": "Fri galop.",
+      "tip": "Vis mere rummelighed uden at miste balancen.",
+      "coefficient": 1,
+      "maxMark": 10
+    },
+    {
+      "sourceNumber": 15,
+      "title": "Indridning og indridnings- og afslutningsparade",
+      "gait": "neutral",
+      "description": "Indridning og indridnings- og afslutningsparade.",
+      "tip": "Planlæg en lige indridning og rolige parader med hilsen.",
+      "coefficient": 1,
+      "maxMark": 10
+    }
+  ],
+  "artisticAssessments": [
+    {
+      "sourceNumber": 16,
+      "title": "Rytme",
+      "description": "Takt, energi og elasticitet gennem hele programmet.",
+      "maxMark": 10,
+      "coefficient": 4
+    },
+    {
+      "sourceNumber": 17,
+      "title": "Harmoni",
+      "description": "Samspil mellem pony og rytter.",
+      "maxMark": 10,
+      "coefficient": 4
+    },
+    {
+      "sourceNumber": 18,
+      "title": "Koreografi",
+      "description": "Udnyttelse af banen og en varieret koreografi.",
+      "maxMark": 10,
+      "coefficient": 4
+    },
+    {
+      "sourceNumber": 19,
+      "title": "Sværhedsgrad",
+      "description": "Velvalgte udfordringer, der passer til ekvipagens niveau.",
+      "maxMark": 10,
+      "coefficient": 4
+    },
+    {
+      "sourceNumber": 20,
+      "title": "Valg af musik",
+      "description": "Musikkens egnethed og samspil med bevægelserne.",
+      "maxMark": 10,
+      "coefficient": 4
+    }
+  ],
+  "notes": [
+    "Rækkefølgen i filen følger bedømmelsesarket. Rytteren vælger selv ridevej og rækkefølge.",
+    "Kilden er selvmodsigende om minimumstiden: overskriften angiver 4:30, mens fradragsfeltet angiver 4:40. Afklar den gældende minimumstid med DRF før start."
+  ]
+}
