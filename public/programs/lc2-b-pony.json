@@ -16,7 +16,6 @@
   "arena": {
     "width": 20,
     "height": 40,
-    "label": "Bane B · set ovenfra",
     "letters": [
       {
         "label": "A",
@@ -86,7 +85,6 @@
       }
     ]
   },
-  "legendNote": "Grøn: skridt. Blå: trav. Rød: galop. Stiplet: schenkelvigning. Zigzag: versade. Hel linje: travers.",
   "disclaimer": "Et selvstændigt træningssupplement til DRF’s officielle protokol. Rideveje og huskepunkter er vejledende; brug dem sammen med din underviser.",
   "referenceDurationSeconds": 270,
   "maxScore": 300,
@@ -100,7 +98,6 @@
       "gaitLabel": "Skridt / Trav",
       "description": "Indridning i middelskridt Arbejdstrav Venstre volte",
       "tip": "Se mod C og hold ponyen lige mellem dine hjælpere.",
-      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
       "segments": [
         {
           "d": "M10 40 L10 20",
@@ -121,7 +118,6 @@
       "gaitLabel": "Trav",
       "description": "Arbejdstrav Volte - 20 meter i diameter Arbejdstrav",
       "tip": "Se en kvart volte frem, og bevar bøjning og rytme hele vejen rundt.",
-      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
       "segments": [
         {
           "d": "M8 0 L2 0 Q0 0 0 2 L0 4 Q0 6 0 8 L0 20",
@@ -137,8 +133,7 @@
         }
       ],
       "size": {
-        "meters": 20,
-        "description": "Voltens diameter for pony"
+        "meters": 20
       }
     },
     {
@@ -150,7 +145,6 @@
       "gaitLabel": "Trav",
       "description": "Slangegang 2 buer",
       "tip": "Ret ponyen ud ved skift af bøjning, og gør buerne lige store.",
-      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende. Slangegangen vises med 2 lige store buer.",
       "segments": [
         {
           "d": "M10 40 L10 40 A10 10 0 0 0 20 30 A10 10 0 0 0 10 20 L10 20 L10 20 A10 10 0 0 1 0 10 A10 10 0 0 1 10 0 L10 0",
@@ -167,7 +161,6 @@
       "gaitLabel": "Trav / Skridt",
       "description": "Middelskridt",
       "tip": "Forbered overgangen før bogstavet og bevar aktiviteten i den nye gangart.",
-      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
       "segments": [
         {
           "d": "M10 0 L15 0",
@@ -188,7 +181,6 @@
       "gaitLabel": "Skridt",
       "description": "Middelskridt for længere tøjler Tøjlerne tages gradvis igen",
       "tip": "Giv gradvis længere tøjler, så ponyen søger frem og ned med samme takt.",
-      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
       "segments": [
         {
           "d": "M20 6 L0 34",
@@ -205,7 +197,6 @@
       "gaitLabel": "Skridt / Trav / Galop",
       "description": "Arbejdstrav Arbejdsgalop til venstre",
       "tip": "Forbered overgangen før bogstavet og bevar aktiviteten i den nye gangart.",
-      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
       "segments": [
         {
           "d": "M0 34 L0 38.33333 Q0 40 1.66667 40 L5 40",
@@ -230,7 +221,6 @@
       "gaitLabel": "Galop",
       "description": "Arbejdsgalop Volte - 20 m i diameter Arbejdsgalop",
       "tip": "Se en kvart volte frem, og bevar bøjning og rytme hele vejen rundt.",
-      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
       "segments": [
         {
           "d": "M20 34 L20 20",
@@ -246,8 +236,7 @@
         }
       ],
       "size": {
-        "meters": 20,
-        "description": "Voltens diameter for pony"
+        "meters": 20
       }
     },
     {
@@ -259,7 +248,6 @@
       "gaitLabel": "Galop / Trav",
       "description": "Arbejdstrav",
       "tip": "Forbered overgangen før bogstavet og bevar aktiviteten i den nye gangart.",
-      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
       "segments": [
         {
           "d": "M10 0 L5 0",
@@ -280,7 +268,6 @@
       "gaitLabel": "Trav / Galop",
       "description": "Arbejdstrav Venstre om Arbejdsgalop til højre Højre om Arbejdsgalop",
       "tip": "Forbered overgangen før bogstavet og bevar aktiviteten i den nye gangart.",
-      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
       "segments": [
         {
           "d": "M0 6 L0 18 Q0 20 2 20 L10 20",
@@ -301,7 +288,6 @@
       "gaitLabel": "Galop",
       "description": "Volte - 20 meter i diameter Arbejdsgalop",
       "tip": "Se en kvart volte frem, og bevar bøjning og rytme hele vejen rundt.",
-      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
       "segments": [
         {
           "d": "M0 20 A10 10 0 0 1 20 20 A10 10 0 0 1 0 20",
@@ -313,8 +299,7 @@
         }
       ],
       "size": {
-        "meters": 20,
-        "description": "Voltens diameter for pony"
+        "meters": 20
       }
     },
     {
@@ -326,7 +311,6 @@
       "gaitLabel": "Galop / Trav",
       "description": "Arbejdstrav Arbejdstrav",
       "tip": "Forbered overgangen før bogstavet og bevar aktiviteten i den nye gangart.",
-      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
       "segments": [
         {
           "d": "M10 0 L15 0",
@@ -347,7 +331,6 @@
       "gaitLabel": "Trav / Skridt",
       "description": "Vend ad midterlinien Middelskridt for gradvis længere tøjler Program afsluttet",
       "tip": "Se mod C og hold ponyen lige mellem dine hjælpere.",
-      "note": "Ridevejen er en skematisk fortolkning af DRF-protokollen. Animationens tempo er vejledende.",
       "segments": [
         {
           "d": "M20 34 L20 38 Q20 40 18 40 L12 40 Q10 40 10 38 L10 27",

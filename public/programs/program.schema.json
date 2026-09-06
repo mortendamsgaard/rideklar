@@ -9,7 +9,6 @@
     "description",
     "source",
     "arena",
-    "legendNote",
     "disclaimer",
     "referenceDurationSeconds",
     "maxScore",
@@ -82,7 +81,7 @@
     "arena": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["width", "height", "label", "letters"],
+      "required": ["width", "height", "letters"],
       "properties": {
         "width": {
           "type": "number",
@@ -91,10 +90,6 @@
         "height": {
           "type": "number",
           "exclusiveMinimum": 0
-        },
-        "label": {
-          "type": "string",
-          "minLength": 1
         },
         "letters": {
           "type": "array",
@@ -121,10 +116,6 @@
           }
         }
       }
-    },
-    "legendNote": {
-      "type": "string",
-      "minLength": 1
     },
     "disclaimer": {
       "type": "string",
@@ -176,10 +167,6 @@
         },
         "heading": {
           "type": "number"
-        },
-        "label": {
-          "type": "string",
-          "minLength": 1
         }
       }
     },
@@ -195,7 +182,6 @@
         "gaitLabel",
         "description",
         "tip",
-        "note",
         "segments"
       ],
       "properties": {
@@ -231,10 +217,6 @@
           "type": "string",
           "minLength": 1
         },
-        "note": {
-          "type": "string",
-          "minLength": 1
-        },
         "segments": {
           "type": "array",
           "minItems": 1,
@@ -245,15 +227,11 @@
         "size": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["meters", "description"],
+          "required": ["meters"],
           "properties": {
             "meters": {
               "type": "number",
               "exclusiveMinimum": 0
-            },
-            "description": {
-              "type": "string",
-              "minLength": 1
             }
           }
         },

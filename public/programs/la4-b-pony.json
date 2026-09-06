@@ -16,7 +16,6 @@
   "arena": {
     "width": 20,
     "height": 40,
-    "label": "Bane B · set ovenfra",
     "letters": [
       {
         "label": "C",
@@ -86,7 +85,6 @@
       }
     ]
   },
-  "legendNote": "Zigzag er en signatur. Ponyen følger en jævn ridevej. Schenkelvigning og travers indgår ikke i LA4-B.",
   "disclaimer": "Et selvstændigt træningssupplement til DRF’s officielle protokol. Rideveje og huskepunkter er vejledende.",
   "referenceDurationSeconds": 330,
   "maxScore": 440,
@@ -99,7 +97,6 @@
       "gaitLabel": "Trav",
       "description": "Rid ind på midterlinjen, stands ved X og hils. Fortsæt i trav og drej til venstre ved C.",
       "tip": "Se mod C, og behold ponyen lige mellem dine hjælpere.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 1,
       "segments": [
         {
@@ -112,8 +109,7 @@
           "gait": "neutral",
           "seconds": 2,
           "hidden": true,
-          "heading": -90,
-          "label": "Parade"
+          "heading": -90
         },
         {
           "d": "M10 20 L10 2 Q10 0 8 0",
@@ -130,7 +126,6 @@
       "gaitLabel": "Trav",
       "description": "Følg hjørnet til H. Vis venstreversade frem mod E.",
       "tip": "Flyt skuldrene lidt indenfor sporet, mens bagparten bliver på hovslaget.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 2,
       "segments": [
         {
@@ -152,7 +147,6 @@
       "gaitLabel": "Trav",
       "description": "Rid en venstre halvvolte, ret ligeud over 4–6 meter omkring X og afslut med en højre halvvolte.",
       "tip": "Ret ponyen helt lige, før du skifter bøjning.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 3,
       "segments": [
         {
@@ -169,7 +163,6 @@
       "gaitLabel": "Trav",
       "description": "Vis højreversade mod F, og fortsæt i almindelig arbejdstrav rundt til A.",
       "tip": "Bevar samme rytme, når du retter ud ved F.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 4,
       "segments": [
         {
@@ -191,7 +184,6 @@
       "gaitLabel": "Trav / tilbage",
       "description": "Stands ved A. Træd 4–6 skridt tilbage, rid frem i trav og fortsæt til K.",
       "tip": "Tæl rolige, diagonale skridt. Rid lige frem igen.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 5,
       "segments": [
         {
@@ -199,15 +191,13 @@
           "gait": "neutral",
           "seconds": 2,
           "hidden": true,
-          "heading": 180,
-          "label": "Parade"
+          "heading": 180
         },
         {
           "d": "M10 40 L12.5 40",
           "gait": "neutral",
           "seconds": 3,
-          "reverse": true,
-          "label": "4–6 skridt tilbage"
+          "reverse": true
         },
         {
           "d": "M12.5 40 L2 40 Q0 40 0 38 L0 34",
@@ -224,7 +214,6 @@
       "gaitLabel": "Middeltrav",
       "description": "Rid skråt igennem fra K over X mod M med længere travtrin.",
       "tip": "Tænk større trin frem for hurtigere takt.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 6,
       "segments": [
         {
@@ -241,7 +230,6 @@
       "gaitLabel": "Trav",
       "description": "Saml overgangen inden M, og fortsæt langs kortsiden mod C.",
       "tip": "Forbered overgangen, mens ponyen stadig er lige.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 7,
       "segments": [
         {
@@ -258,7 +246,6 @@
       "gaitLabel": "Skridt",
       "description": "Gå over i skridt ved C. Følg den venstre halvcirkel til X og giv mere tøjle.",
       "tip": "Lad halsen strække sig, og følg skridten med hånden.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 8,
       "segments": [
         {
@@ -275,7 +262,6 @@
       "gaitLabel": "Skridt",
       "description": "Afkort skridten mellem X og B. Vend til venstre om bagparten og skridt mod E.",
       "tip": "Bevar små, aktive skridt i vendingen.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 9,
       "segments": [
         {
@@ -292,7 +278,6 @@
       "gaitLabel": "Skridt",
       "description": "Afkort mellem X og E. Vend til højre om bagparten og skridt tilbage mod X.",
       "tip": "Undgå at dreje rundt på et fastlåst bagben.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 10,
       "segments": [
         {
@@ -309,7 +294,6 @@
       "gaitLabel": "Vurdering",
       "description": "Dette punkt vurderer skridten før, under og mellem vendingerne. Det er ikke en ny strækning i programmet.",
       "tip": "Bevar en tydelig firetakt, også når skridtene bliver kortere.",
-      "note": "Opsamlingen tilføjer ingen bevægelse i automatisk afspilning.",
       "sourceNumber": 11,
       "segments": [
         {
@@ -333,7 +317,6 @@
       "gaitLabel": "Højregalop",
       "description": "Spring an ved X. Drej til højre ved B og fortsæt gennem hjørnet til A.",
       "tip": "Gør ponyen lige og klar, inden du giver galophjælpen.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 12,
       "segments": [
         {
@@ -350,7 +333,6 @@
       "gaitLabel": "Kontragalop",
       "description": "Følg sporet til K, skift skråt til B og behold højregaloppen gennem kortsiden til H.",
       "tip": "Behold galoppens stilling, og giv god plads i hjørnerne.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 13,
       "segments": [
         {
@@ -367,7 +349,6 @@
       "gaitLabel": "Middelgalop",
       "description": "Drej ind senest fem meter efter H. Øg mod F, og kom tilbage i arbejdsgalop inden F. Fortsæt til A.",
       "tip": "Ret ud på diagonalen, før du beder om mere rummelighed.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 14,
       "segments": [
         {
@@ -384,7 +365,6 @@
       "gaitLabel": "Højregalop",
       "description": "Rid en rund 8-meter-volte ved A. Fortsæt derefter forbi K mod E.",
       "tip": "Volten når otte meter ind på banen. Bevar en jævn bøjning hele vejen.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 15,
       "segments": [
         {
@@ -393,8 +373,7 @@
         }
       ],
       "size": {
-        "meters": 8,
-        "description": "Ponyvoltens diameter · 4 m radius"
+        "meters": 8
       }
     },
     {
@@ -405,7 +384,6 @@
       "gaitLabel": "Galop / skridt",
       "description": "Drej til højre ved E. Vis 6–8 skridt omkring X, spring an til venstre og drej til venstre ved B.",
       "tip": "Giv plads til skridtene på begge sider af X.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 16,
       "segments": [
         {
@@ -416,8 +394,7 @@
         {
           "d": "M7 20 L13 20",
           "gait": "skridt",
-          "seconds": 6,
-          "label": "6–8 skridt"
+          "seconds": 6
         },
         {
           "d": "M13 20 L18 20 Q20 20 20 18",
@@ -434,7 +411,6 @@
       "gaitLabel": "Venstregalop",
       "description": "Fortsæt til C og rid en rund 8-meter-volte til venstre.",
       "tip": "Se rundt på volten, og hold rytmen med en rolig overkrop.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 17,
       "segments": [
         {
@@ -443,8 +419,7 @@
         }
       ],
       "size": {
-        "meters": 8,
-        "description": "Ponyvoltens diameter · 4 m radius"
+        "meters": 8
       }
     },
     {
@@ -455,7 +430,6 @@
       "gaitLabel": "Middelgalop",
       "description": "Følg hjørnet til H og rid diagonalen over X mod F. Vend tilbage til arbejdsgalop inden F.",
       "tip": "Forbered overgangen før hovslaget, så balancen følger med.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 18,
       "segments": [
         {
@@ -472,7 +446,6 @@
       "gaitLabel": "Kontragalop",
       "description": "Behold venstregaloppen rundt om A. Vend senest fem meter efter K og rid mod M.",
       "tip": "Rid rummelige hjørner og behold samme galop gennem vendingen.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 19,
       "segments": [
         {
@@ -489,7 +462,6 @@
       "gaitLabel": "Galop / trav",
       "description": "Følg kortsiden i galop. Skift til trav ved H og fortsæt til E.",
       "tip": "Find travens takt med det samme, uden at falde frem.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 20,
       "segments": [
         {
@@ -510,7 +482,6 @@
       "gaitLabel": "Trav",
       "description": "Rid en 20-meter-halvvolte fra E til B i letridning, mens du giver tøjle. Tag gradvis tøjlerne op og sid ned inden M.",
       "tip": "Lad ponyen søge frem og ned uden at ændre travrytmen.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 21,
       "segments": [
         {
@@ -519,8 +490,7 @@
         }
       ],
       "size": {
-        "meters": 20,
-        "description": "Halvvoltens diameter"
+        "meters": 20
       }
     },
     {
@@ -531,7 +501,6 @@
       "gaitLabel": "Trav",
       "description": "Fortsæt rundt til E. Rid en halvvolte til X og følg midterlinjen frem til G.",
       "tip": "Se op mod C, så du rammer midterlinjen lige.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 22,
       "segments": [
         {
@@ -548,7 +517,6 @@
       "gaitLabel": "Parade",
       "description": "Stands lige ved G og hils. Efter afslutningen rides ud i skridt med lange tøjler.",
       "tip": "Bliv siddende roligt, indtil ponyen står stille.",
-      "note": "Ridevejen er skematisk. Tempo og skridtlængde i animationen er vejledende.",
       "sourceNumber": 23,
       "segments": [
         {
@@ -556,8 +524,7 @@
           "gait": "neutral",
           "seconds": 4,
           "hidden": true,
-          "heading": -90,
-          "label": "Parade"
+          "heading": -90
         }
       ]
     }

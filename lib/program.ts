@@ -8,7 +8,6 @@ export type Segment = {
   reverse?: boolean;
   hidden?: boolean;
   heading?: number;
-  label?: string;
 };
 export type Exercise = {
   id: string;
@@ -19,9 +18,8 @@ export type Exercise = {
   gaitLabel: string;
   description: string;
   tip: string;
-  note: string;
   segments: Segment[];
-  size?: { meters: number; description: string };
+  size?: { meters: number };
   assessment?: boolean;
   restingPoint?: { x: number; y: number; heading: number };
   assessmentSeconds?: number;
@@ -44,10 +42,8 @@ export type Program = {
   arena: {
     width: number;
     height: number;
-    label: string;
     letters: { label: string; x: number; y: number; interior: boolean }[];
   };
-  legendNote: string;
   disclaimer: string;
   referenceDurationSeconds: number;
   maxScore: number;
@@ -137,14 +133,7 @@ export function parseCatalog(input: unknown): Catalog {
 export function parseProgram(input: unknown): Program {
   const p = record(input, 'program');
   if (p.schemaVersion !== 1) throw Error('Ukendt programversion');
-  for (const k of [
-    'id',
-    'title',
-    'audience',
-    'description',
-    'legendNote',
-    'disclaimer',
-  ])
+  for (const k of ['id', 'title', 'audience', 'description', 'disclaimer'])
     str(p[k], k);
   num(p.referenceDurationSeconds, 'referenceDurationSeconds', 1);
   num(p.maxScore, 'maxScore', 1);
@@ -169,7 +158,6 @@ export function parseProgram(input: unknown): Program {
   const arena = record(p.arena, 'arena');
   num(arena.width, 'arena.width', 1);
   num(arena.height, 'arena.height', 1);
-  str(arena.label, 'arena.label');
   arr(arena.letters, 'arena.letters');
   const labels = new Set();
   for (const x of arena.letters) {
@@ -192,7 +180,6 @@ export function parseProgram(input: unknown): Program {
       'gaitLabel',
       'description',
       'tip',
-      'note',
     ])
       str(e[k], k);
     if (ids.has(e.id)) throw Error('Gentaget øvelses-id');
@@ -216,14 +203,12 @@ export function parseProgram(input: unknown): Program {
         throw Error('Ukendt linjetype');
       if (s.seconds !== undefined) num(s.seconds, 'seconds', 0.01);
       if (s.heading !== undefined) num(s.heading, 'heading');
-      if (s.label !== undefined) str(s.label, 'label');
       optionalBool(s.reverse, 'reverse');
       optionalBool(s.hidden, 'hidden');
     }
     if (e.size !== undefined) {
       const size = record(e.size, 'size');
       num(size.meters, 'meters', 0.01);
-      str(size.description, 'size.description');
     }
     if (e.assessment) {
       const point = record(e.restingPoint, 'restingPoint');
