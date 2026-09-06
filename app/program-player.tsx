@@ -229,7 +229,7 @@ export default function ProgramPlayer({
                     textAnchor="middle"
                     dominantBaseline="middle"
                     fontSize={interior ? '.85' : '1.1'}
-                    fill={interior ? '#a58a5e' : '#7a5a30'}
+                    fill={interior ? '#8a6c3e' : '#7a5a30'}
                     fontWeight="600"
                   >
                     {l}
@@ -237,7 +237,7 @@ export default function ProgramPlayer({
                   {!interior && (x < 0 || x > arena.width) && (
                     <path
                       d={`M${x < 0 ? -0.4 : arena.width} ${y}h.4`}
-                      stroke="#b5722a"
+                      stroke="#96601f"
                       strokeWidth=".15"
                     />
                   )}
