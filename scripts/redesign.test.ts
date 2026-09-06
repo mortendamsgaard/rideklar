@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { markerAngle } from '../app/ride-style.ts';
 
 const read = (p: string) =>
   fs.readFileSync(new URL(`../${p}`, import.meta.url), 'utf8');
@@ -191,4 +192,127 @@ void test('the remembered programme is guarded and validated', () => {
     /readStoredProgram\(\)[^]*?c\.programs\.some[^]*?c\.defaultId/,
     'the stored id must be validated against the catalogue before use',
   );
+});
+
+void test('the pony stays parallel to the long side during schenkelvigning', () => {
+  // Leg-yield travels a diagonal but the body stays parallel to the long side,
+  // facing whichever end of the arena the movement is heading towards.
+  // y decreases towards C, increases towards A.
+  assert.equal(markerAngle('schenkelvigning', -10, -21), -90, 'towards C');
+  assert.equal(markerAngle('schenkelvigning', +10, -30), -90, 'towards C');
+  assert.equal(markerAngle('schenkelvigning', -10, +21), 90, 'towards A');
+  assert.equal(markerAngle('schenkelvigning', +10, +24), 90, 'towards A');
+
+  // Every other movement follows the path tangent as before.
+  assert.equal(markerAngle(undefined, 1, 0), 0);
+  assert.equal(markerAngle('normal', 0, 1), 90);
+  assert.equal(
+    markerAngle('versade', -1, 0),
+    180,
+    'no dy: falls back to tangent',
+  );
+  assert.equal(markerAngle('versade', 1, 0), 0);
+  assert.equal(markerAngle(undefined, 1, 0, true), 180, 'reverse flips it');
+  // reverse must not apply to the snapped case
+  assert.equal(markerAngle('schenkelvigning', -10, -21, true), -90);
+
+  // Sidetraversade (half-pass) travels a diagonal with the body parallel to the
+  // long side too, so it snaps the same way.
+  assert.equal(markerAngle('travers', -10, -24), -90, 'half-pass towards C');
+  assert.equal(markerAngle('travers', +10, -30), -90, 'half-pass towards C');
+  assert.equal(markerAngle('travers', -10, +24), 90, 'half-pass towards A');
+});
+
+void test('every snapped lateral segment runs along the long side', () => {
+  // markerAngle snaps on the sign of dy, which is only meaningful because the
+  // movement is predominantly vertical. Guard that assumption against the data.
+  const dir = new URL('../public/programs/', import.meta.url);
+  for (const name of fs.readdirSync(dir)) {
+    if (!name.endsWith('.json') || name === 'index.json') continue;
+    if (name === 'program.schema.json') continue;
+    const p = JSON.parse(fs.readFileSync(new URL(name, dir), 'utf8'));
+    for (const e of p.exercises ?? []) {
+      for (const s of e.segments) {
+        if (s.movement !== 'schenkelvigning' && s.movement !== 'travers')
+          continue;
+        const n = (s.d.match(/-?\d+\.?\d*/g) ?? []).map(Number);
+        const dx = n[n.length - 2] - n[0];
+        const dy = n[n.length - 1] - n[1];
+        assert.ok(
+          Math.abs(dy) > Math.abs(dx),
+          `${p.id} #${e.number}: ${s.movement} is not predominantly along the long side`,
+        );
+      }
+    }
+  }
+});
+
+void test('versade sits 30 degrees off the track with the head leaning in', () => {
+  // The head leans towards the arena centre. Arena is 20 wide, centre x = 10.
+  // Real paths: la4-b #2 runs M0 6 L0 20 (left wall, towards A);
+  //             la4-b #4 runs M20 20 L20 34 (right wall, towards A).
+  const left = markerAngle('versade', 0, 14, false, 0, 10);
+  const right = markerAngle('versade', 0, 14, false, 20, 10);
+  assert.equal(
+    left,
+    60,
+    'left wall towards A: nose swung to +x, towards centre',
+  );
+  assert.equal(
+    right,
+    120,
+    'right wall towards A: nose swung to -x, towards centre',
+  );
+
+  // Travelling the other way flips the rotation, because the head still leans
+  // towards the centre while the direction of travel reverses.
+  assert.equal(markerAngle('versade', 0, -14, false, 0, 10), -60);
+  assert.equal(markerAngle('versade', 0, -14, false, 20, 10), -120);
+
+  // The x-component of the heading must point towards the centre on both walls.
+  for (const [x, dy] of [
+    [0, 14],
+    [0, -14],
+    [20, 14],
+    [20, -14],
+  ] as const) {
+    const rad = (markerAngle('versade', 0, dy, false, x, 10) * Math.PI) / 180;
+    const towardsCentre = Math.sign(10 - x);
+    assert.equal(
+      Math.sign(Math.round(Math.cos(rad) * 100)),
+      towardsCentre,
+      `x=${x} dy=${dy}: head must lean towards the centre`,
+    );
+  }
+
+  // Both walls lean the same way relative to the arena, never mirrored wrongly.
+  assert.equal(Math.abs(left - 90), 30);
+  assert.equal(Math.abs(right - 90), 30);
+});
+
+void test('every versade segment runs along a long-side wall', () => {
+  // The 30-degree offset is only meaningful for a movement performed on the
+  // track. Guard that the data never puts versade somewhere else.
+  const dir = new URL('../public/programs/', import.meta.url);
+  for (const name of fs.readdirSync(dir)) {
+    if (!name.endsWith('.json') || name === 'index.json') continue;
+    if (name === 'program.schema.json') continue;
+    const p = JSON.parse(fs.readFileSync(new URL(name, dir), 'utf8'));
+    for (const e of p.exercises ?? []) {
+      for (const s of e.segments) {
+        if (s.movement !== 'versade') continue;
+        const n = (s.d.match(/-?\d+\.?\d*/g) ?? []).map(Number);
+        const onWall = n[0] === 0 || n[0] === p.arena.width;
+        assert.ok(
+          onWall,
+          `${p.id} #${e.number}: versade does not start on a wall`,
+        );
+        assert.equal(
+          n[n.length - 2],
+          n[0],
+          `${p.id} #${e.number}: versade should run straight along the wall`,
+        );
+      }
+    }
+  }
 });

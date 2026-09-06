@@ -18,7 +18,7 @@ import {
   timelinePosition,
   stationaryPosition,
 } from '@/lib/animation';
-import { gaitColors, lineDash, zigzagPath } from './ride-style';
+import { gaitColors, lineDash, markerAngle, zigzagPath } from './ride-style';
 export default function ProgramPlayer({
   program,
   selector,
@@ -93,8 +93,14 @@ export default function ProgramPlayer({
       const angle = row.assessment
         ? row.restingPoint!.heading
         : (segment.heading ??
-          (Math.atan2(after.y - before.y, after.x - before.x) * 180) / Math.PI +
-            (segment.reverse ? 180 : 0));
+          markerAngle(
+            segment.movement,
+            after.x - before.x,
+            after.y - before.y,
+            segment.reverse,
+            q.x,
+            arena.width / 2,
+          ));
       marker.current?.setAttribute(
         'transform',
         `translate(${q.x} ${q.y}) rotate(${angle})`,
@@ -122,7 +128,16 @@ export default function ProgramPlayer({
     }
     if (playing && !suspended) frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [row, segments, playing, index, rows.length, restart, suspended]);
+  }, [
+    row,
+    segments,
+    playing,
+    index,
+    rows.length,
+    restart,
+    suspended,
+    arena.width,
+  ]);
   useEffect(() => {
     const el = currentRow.current;
     const list = el?.parentElement;
