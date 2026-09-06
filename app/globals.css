@@ -23,15 +23,15 @@ html {
   --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
   --h-header: 50px;
-  --h-arena: 364px;
+  --h-arena: 414px;
   /* Worst case measured at 390px across all 547 exercises: eyebrow 18 +
      h2 margin 4 + two-line title 47 (82 exercises wrap; none reach three)
      + description margin 6 + two-line clamped description 41. */
   --h-text: 116px;
   --h-control-row: 44px;
-  /* The four stacked paddings: .stage 10 + .exercise-head 10 +
-     .controls-primary 10 + .controls-secondary 6. */
-  --h-gaps: 36px;
+  /* The three stacked paddings: .stage 10 + .exercise-head 10 +
+     .controls-primary 10. */
+  --h-gaps: 30px;
   /* Token arithmetic runs optimistic against the rendered box model
      (borders, line-height rounding, the progress fill). Measured, not guessed. */
   --h-render-slack: 10px;
@@ -248,11 +248,13 @@ header,
 
 /* ── Playback controls ── */
 .controls-primary {
+  display: flex;
+  gap: 6px;
   padding: 10px 12px 0;
 }
 .play-all {
   position: relative;
-  width: 100%;
+  flex: 1;
   height: var(--h-control-row);
   border: 0;
   border-radius: var(--radius);
@@ -278,14 +280,10 @@ header,
   height: 100%;
 }
 
-.controls-secondary {
-  display: flex;
-  gap: 6px;
-  padding: 6px 12px 0;
-}
-.step,
-.play-one {
+.step {
   height: var(--h-control-row);
+  width: 52px;
+  flex: none;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius);
   background: var(--surface);
@@ -298,13 +296,6 @@ header,
   justify-content: center;
   gap: 6px;
   cursor: pointer;
-}
-.step {
-  width: 52px;
-  flex: none;
-}
-.play-one {
-  flex: 1;
 }
 
 /* ── Exercise detail ── */
@@ -513,13 +504,9 @@ footer a {
     grid-column: 1;
     grid-row: 4;
   }
-  .controls-secondary {
-    grid-column: 1;
-    grid-row: 5;
-  }
   .route-key {
     grid-column: 1;
-    grid-row: 6;
+    grid-row: 5;
   }
   .exercise-head {
     grid-column: 2;
@@ -531,13 +518,12 @@ footer a {
   }
   .program {
     grid-column: 2;
-    grid-row: 3 / 7;
+    grid-row: 3 / 6;
   }
 
   .stage,
   .exercise-head,
   .controls-primary,
-  .controls-secondary,
   .description,
   .route-key {
     padding-left: 0;

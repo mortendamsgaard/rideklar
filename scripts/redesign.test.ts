@@ -94,7 +94,7 @@ void test('the first screen fits an iPhone 14 viewport without scrolling', () =>
     px('--h-header') +
     px('--h-arena') +
     px('--h-text') +
-    px('--h-control-row') * 2 +
+    px('--h-control-row') +
     px('--h-gaps') +
     px('--h-render-slack');
   const target = px('--vp-target');
@@ -120,7 +120,6 @@ void test('player markup exposes the new layout hooks', () => {
     'stage',
     'exercise-head',
     'controls-primary',
-    'controls-secondary',
     'program-list',
     'program-row',
   ]) {

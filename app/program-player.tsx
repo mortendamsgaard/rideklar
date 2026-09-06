@@ -30,7 +30,6 @@ export default function ProgramPlayer({
 }) {
   const [index, setIndex] = useState(0),
     [playing, setPlaying] = useState(false),
-    [all, setAll] = useState(false),
     [fraction, setFraction] = useState(0),
     [restart, setRestart] = useState(0);
   const marker = useRef<SVGGElement>(null),
@@ -52,7 +51,6 @@ export default function ProgramPlayer({
     if (i < 0 || i >= rows.length) return;
     setIndex(i);
     setPlaying(false);
-    setAll(false);
     reset();
   }
   useEffect(() => {
@@ -110,13 +108,12 @@ export default function ProgramPlayer({
       setFraction(f);
       position(Math.min(total, elapsed.current));
       if (f === 1) {
-        if (all && index < rows.length - 1) {
+        if (index < rows.length - 1) {
           elapsed.current = 0;
           setFraction(0);
           setIndex(index + 1);
         } else {
           setPlaying(false);
-          setAll(false);
         }
         return;
       }
@@ -124,7 +121,7 @@ export default function ProgramPlayer({
     }
     if (playing && !suspended) frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [row, segments, playing, all, index, rows.length, restart, suspended]);
+  }, [row, segments, playing, index, rows.length, restart, suspended]);
   useEffect(() => {
     const el = currentRow.current;
     const list = el?.parentElement;
@@ -136,19 +133,12 @@ export default function ProgramPlayer({
         : 'smooth',
     });
   }, [index]);
-  function play(full: boolean) {
-    if (playing && all === full) {
+  function play() {
+    if (playing) {
       setPlaying(false);
       return;
     }
-    if (full && !all) {
-      reset();
-      setIndex(0);
-    } else if (fraction >= 1) {
-      reset();
-      if (full && index === rows.length - 1) setIndex(0);
-    }
-    setAll(full);
+    if (fraction >= 1) reset();
     setPlaying(true);
   }
   return (
@@ -304,29 +294,6 @@ export default function ProgramPlayer({
         </div>
         <div className="controls-primary">
           <button
-            className="play-all"
-            disabled={suspended}
-            onClick={() => play(true)}
-          >
-            <span
-              className="play-fill"
-              aria-hidden="true"
-              style={{
-                width: `${
-                  all
-                    ? ((index + fraction) / rows.length) * 100
-                    : fraction * 100
-                }%`,
-              }}
-            />
-            <span className="play-label">
-              {playing && all ? <Pause size={17} /> : <Play size={17} />}
-              {playing && all ? 'Pause program' : 'Afspil hele programmet'}
-            </span>
-          </button>
-        </div>
-        <div className="controls-secondary">
-          <button
             className="step"
             aria-label="Forrige øvelse"
             disabled={suspended || index === 0}
@@ -335,12 +302,21 @@ export default function ProgramPlayer({
             <ArrowLeft size={18} />
           </button>
           <button
-            className="play-one"
+            className="play-all"
             disabled={suspended}
-            onClick={() => play(false)}
+            aria-label={playing ? 'Pause' : 'Afspil programmet'}
+            onClick={play}
           >
-            {playing && !all ? <Pause size={16} /> : <Play size={16} />}
-            {playing && !all ? 'Pause' : 'Øvelsen'}
+            <span
+              className="play-fill"
+              aria-hidden="true"
+              style={{
+                width: `${((index + fraction) / rows.length) * 100}%`,
+              }}
+            />
+            <span className="play-label">
+              {playing ? <Pause size={17} /> : <Play size={17} />}
+            </span>
           </button>
           <button
             className="step"
