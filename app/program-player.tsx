@@ -280,100 +280,62 @@ export default function ProgramPlayer({
             </svg>
             <span className="dimension">{arena.width} m</span>
           </div>
-          <div
-            className="route-key"
-            aria-label="Forklaring af ridevejens farver og linjetyper"
-          >
-            <div className="legend">
-              {(['skridt', 'trav', 'galop'] as const).map((g) => (
-                <span key={g}>
-                  <i style={{ background: gaitColors[g] }} />
-                  {g[0].toUpperCase() + g.slice(1)}
-                </span>
-              ))}
-              <span>
-                <i style={{ background: gaitColors.neutral }} />
-                Parade / tilbage
-              </span>
-            </div>
-            <div className="legend movement-key">
-              <span>
-                <svg viewBox="0 0 32 12" aria-hidden="true">
-                  <path d="M1 6H31" strokeDasharray="4 3" />
-                </svg>
-                Schenkelvigning
-              </span>
-              <span>
-                <svg viewBox="0 0 32 12" aria-hidden="true">
-                  <path d="M1 6L6 2L11 10L16 2L21 10L26 2L31 6" />
-                </svg>
-                Versade
-              </span>
-              <span>
-                <svg viewBox="0 0 32 12" aria-hidden="true">
-                  <path d="M1 6H31" />
-                </svg>
-                Travers
-              </span>
-            </div>
-            <p>{program.legendNote}</p>
-          </div>
-          <div className="controls-primary">
-            <button
-              className="play-all"
-              disabled={suspended}
-              onClick={() => play(true)}
-            >
-              <span
-                className="play-fill"
-                aria-hidden="true"
-                style={{ width: `${all ? fraction * 100 : 0}%` }}
-              />
-              <span className="play-label">
-                {playing && all ? <Pause size={17} /> : <Play size={17} />}
-                {playing && all ? 'Pause program' : 'Afspil hele programmet'}
-              </span>
-            </button>
-          </div>
-          <div className="controls-secondary">
-            <button
-              className="step"
-              aria-label="Forrige øvelse"
-              disabled={suspended || index === 0}
-              onClick={() => choose(index - 1)}
-            >
-              <ArrowLeft size={18} />
-            </button>
-            <button
-              className="play-one"
-              disabled={suspended}
-              onClick={() => play(false)}
-            >
-              {playing && !all ? <Pause size={16} /> : <Play size={16} />}
-              {playing && !all ? 'Pause' : 'Øvelsen'}
-            </button>
-            <button
-              className="step"
-              aria-label="Næste øvelse"
-              disabled={suspended || index === rows.length - 1}
-              onClick={() => choose(index + 1)}
-            >
-              <ArrowRight size={18} />
-            </button>
-          </div>
         </section>
-        <aside className="detail">
-          <div className="exercise-head" aria-live="polite">
-            <span className="eyebrow">
-              ØVELSE {String(index + 1).padStart(2, '0')} / {rows.length} ·{' '}
-              {row.gaitLabel}
+        <div className="exercise-head" aria-live="polite">
+          <span className="eyebrow">
+            ØVELSE {String(index + 1).padStart(2, '0')} / {rows.length} ·{' '}
+            {row.gaitLabel}
+          </span>
+          <h2>
+            {row.title} <span className="at">· {row.location}</span>
+          </h2>
+          <p className="description">{row.description}</p>
+        </div>
+        <div className="controls-primary">
+          <button
+            className="play-all"
+            disabled={suspended}
+            onClick={() => play(true)}
+          >
+            <span
+              className="play-fill"
+              aria-hidden="true"
+              style={{ width: `${all ? fraction * 100 : 0}%` }}
+            />
+            <span className="play-label">
+              {playing && all ? <Pause size={17} /> : <Play size={17} />}
+              {playing && all ? 'Pause program' : 'Afspil hele programmet'}
             </span>
-            <h2>
-              {row.title} <span className="at">· {row.location}</span>
-            </h2>
-          </div>
+          </button>
+        </div>
+        <div className="controls-secondary">
+          <button
+            className="step"
+            aria-label="Forrige øvelse"
+            disabled={suspended || index === 0}
+            onClick={() => choose(index - 1)}
+          >
+            <ArrowLeft size={18} />
+          </button>
+          <button
+            className="play-one"
+            disabled={suspended}
+            onClick={() => play(false)}
+          >
+            {playing && !all ? <Pause size={16} /> : <Play size={16} />}
+            {playing && !all ? 'Pause' : 'Øvelsen'}
+          </button>
+          <button
+            className="step"
+            aria-label="Næste øvelse"
+            disabled={suspended || index === rows.length - 1}
+            onClick={() => choose(index + 1)}
+          >
+            <ArrowRight size={18} />
+          </button>
+        </div>
+        <aside className="detail">
           <div className="detail-content" aria-live="polite">
-            <p className="description">{row.description}</p>
             <div className="tip">
               <Lightbulb size={22} />
               <div>
@@ -401,6 +363,44 @@ export default function ProgramPlayer({
             )}
           </div>
         </aside>
+        <div
+          className="route-key"
+          aria-label="Forklaring af ridevejens farver og linjetyper"
+        >
+          <div className="legend">
+            {(['skridt', 'trav', 'galop'] as const).map((g) => (
+              <span key={g}>
+                <i style={{ background: gaitColors[g] }} />
+                {g[0].toUpperCase() + g.slice(1)}
+              </span>
+            ))}
+            <span>
+              <i style={{ background: gaitColors.neutral }} />
+              Parade / tilbage
+            </span>
+          </div>
+          <div className="legend movement-key">
+            <span>
+              <svg viewBox="0 0 32 12" aria-hidden="true">
+                <path d="M1 6H31" strokeDasharray="4 3" />
+              </svg>
+              Schenkelvigning
+            </span>
+            <span>
+              <svg viewBox="0 0 32 12" aria-hidden="true">
+                <path d="M1 6L6 2L11 10L16 2L21 10L26 2L31 6" />
+              </svg>
+              Versade
+            </span>
+            <span>
+              <svg viewBox="0 0 32 12" aria-hidden="true">
+                <path d="M1 6H31" />
+              </svg>
+              Travers
+            </span>
+          </div>
+          <p>{program.legendNote}</p>
+        </div>
       </div>
       <section className="program">
         <div className="program-heading">

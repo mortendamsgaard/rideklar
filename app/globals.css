@@ -328,8 +328,7 @@ header,
   display: block;
 }
 .detail-content {
-  padding: 8px 32px 20px;
-  flex: 1;
+  padding: 0 0 20px;
 }
 .exercise-head {
   padding: 10px 12px 0;
@@ -457,6 +456,7 @@ header,
   min-width: 20px;
 }
 .row-title {
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
