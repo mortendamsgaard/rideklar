@@ -36,7 +36,8 @@ export default function ProgramPlayer({
   const marker = useRef<SVGGElement>(null),
     label = useRef<HTMLSpanElement>(null),
     drawnPaths = useRef<(SVGPathElement | null)[]>([]),
-    elapsed = useRef(0);
+    elapsed = useRef(0),
+    currentRow = useRef<HTMLButtonElement>(null);
   const rows = program.exercises,
     arena = program.arena,
     row = rows[index],
@@ -124,6 +125,15 @@ export default function ProgramPlayer({
     if (playing && !suspended) frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
   }, [row, segments, playing, all, index, rows.length, restart, suspended]);
+  useEffect(() => {
+    const el = currentRow.current;
+    const list = el?.parentElement;
+    if (!el || !list || list.scrollHeight <= list.clientHeight) return;
+    list.scrollTo({
+      top: el.offsetTop - list.clientHeight / 2 + el.clientHeight / 2,
+      behavior: 'smooth',
+    });
+  }, [index]);
   function play(full: boolean) {
     if (playing && all === full) {
       setPlaying(false);
@@ -410,6 +420,7 @@ export default function ProgramPlayer({
             {rows.map((r, i) => (
               <button
                 key={r.id}
+                ref={i === index ? currentRow : undefined}
                 disabled={suspended}
                 className={i === index ? 'program-row current' : 'program-row'}
                 aria-current={i === index ? 'step' : undefined}

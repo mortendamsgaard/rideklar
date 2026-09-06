@@ -524,17 +524,33 @@ footer a {
     padding: 24px;
   }
 
-  .stage,
-  .controls-primary,
-  .controls-secondary,
+  .stage {
+    grid-column: 1;
+    grid-row: 1 / 4;
+  }
+  .controls-primary {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  .controls-secondary {
+    grid-column: 1;
+    grid-row: 5;
+  }
   .route-key {
     grid-column: 1;
+    grid-row: 6;
   }
-
-  .exercise-head,
-  .detail,
+  .exercise-head {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .detail {
+    grid-column: 2;
+    grid-row: 2;
+  }
   .program {
     grid-column: 2;
+    grid-row: 3 / 7;
   }
 
   .stage,
@@ -564,7 +580,8 @@ footer a {
   .tip,
   .size-note,
   .schematic,
-  .next-preview {
+  .next-preview,
+  .program-heading {
     margin-left: 0;
     margin-right: 0;
   }
