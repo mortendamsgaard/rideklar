@@ -3,6 +3,25 @@ import { useEffect, useRef, useState } from 'react';
 import { loadJson, parseCatalog, parseProgram } from '@/lib/program';
 import type { Catalog, Program } from '@/lib/program';
 import ProgramPlayer from './program-player';
+// The last programme a rider chose, so a return visit resumes where they left
+// off. Every access is guarded: localStorage throws outright in some contexts
+// (Safari private browsing, blocked site data), and an uncaught throw here
+// would break the whole page load, not just this convenience.
+const STORAGE_KEY = 'rideklar:program';
+function readStoredProgram(): string {
+  try {
+    return localStorage.getItem(STORAGE_KEY) ?? '';
+  } catch {
+    return '';
+  }
+}
+function storeProgram(id: string) {
+  try {
+    localStorage.setItem(STORAGE_KEY, id);
+  } catch {
+    // Nothing to do — the site works fine without remembering.
+  }
+}
 export default function Home() {
   const [catalog, setCatalog] = useState<Catalog | null>(null),
     [program, setProgram] = useState<Program | null>(null),
@@ -20,9 +39,10 @@ export default function Home() {
       .then((c) => {
         if (controller.signal.aborted) return;
         setCatalog(c);
-        setSelected((previous) =>
-          c.programs.some((p) => p.id === previous) ? previous : c.defaultId,
-        );
+        setSelected((previous) => {
+          const wanted = previous || readStoredProgram();
+          return c.programs.some((p) => p.id === wanted) ? wanted : c.defaultId;
+        });
       })
       .catch((e) => {
         if (!controller.signal.aborted) {
@@ -71,6 +91,7 @@ export default function Home() {
           setLoading(true);
           setError('');
           setSelected(value);
+          storeProgram(value);
         }
       }}
     >

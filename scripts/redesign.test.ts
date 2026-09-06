@@ -171,3 +171,24 @@ void test('no sage-palette colours remain in the stylesheet', () => {
   const stray = found.filter((h) => !allowed.has(h));
   assert.deepEqual(stray, [], `unmigrated colours: ${stray.join(', ')}`);
 });
+
+void test('the remembered programme is guarded and validated', () => {
+  const page = read('app/page.tsx');
+  // Unguarded localStorage access throws in Safari private browsing and with
+  // site data blocked, which would break the whole page load rather than just
+  // this convenience. Both accesses must sit inside try/catch.
+  const reads = page.match(/localStorage\.(getItem|setItem)/g) ?? [];
+  assert.equal(reads.length, 2, 'exactly one read and one write expected');
+  for (const fn of ['readStoredProgram', 'storeProgram']) {
+    const body = page.match(new RegExp(`function ${fn}[^]*?\\n\\}`))?.[0] ?? '';
+    assert.match(body, /try \{/, `${fn} must guard localStorage access`);
+    assert.match(body, /catch/, `${fn} must swallow storage failures`);
+  }
+  // A stored id for a programme that was later renamed or removed must fall
+  // back to the catalogue default, not surface an error.
+  assert.match(
+    page,
+    /readStoredProgram\(\)[^]*?c\.programs\.some[^]*?c\.defaultId/,
+    'the stored id must be validated against the catalogue before use',
+  );
+});
