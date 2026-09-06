@@ -34,7 +34,7 @@ npm start        # serve the build locally
 
 ```
 npm run lint              # oxlint, clean across the repo
-npm test                  # 37 tests
+npm test                  # 45 tests
 npm run validate:programs # schema + geometry validation of every program
 ```
 
@@ -43,7 +43,10 @@ malformed program file fails the build instead of shipping.
 
 Tests cover catalog and JSON validation, every route join, sampled arena bounds,
 lateral-movement placement, pony circle diameters, timing, halts, invalid files
-and HTTP failures.
+and HTTP failures, plus guardrails for the redesigned interface: the first
+screen fitting an iPhone 14 viewport without scrolling, the layout markup and
+palette, and that no Tailwind, shadcn or other component-library layer has
+crept back in.
 
 ## Architecture
 
@@ -61,8 +64,11 @@ program means adding a JSON file and a catalog entry — no code changes.
 | `app/program-player.tsx` | Arena, notation, navigation, animation |
 
 Built with [vinext](https://www.npmjs.com/package/vinext) (Next.js-compatible
-app router on Vite) and React 19. Routes are SVG paths in metres, with the origin
-at the arena's upper left.
+app router on Vite) and React 19, with hand-written CSS and no component
+library. Routes are SVG paths in metres, with the origin at the arena's upper
+left. The interface targets iPhone 14 and newer; `app/globals.css` carries the
+layout height tokens and `scripts/redesign.test.ts` asserts the first screen
+fits a 664 px viewport.
 
 See [PROGRAMS.md](PROGRAMS.md) for the data format and the procedure for
 converting a DRF protocol into a program file.
