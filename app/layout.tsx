@@ -10,7 +10,10 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   title: 'rideklar',
-  icons: { icon: '/favicon.svg' },
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
