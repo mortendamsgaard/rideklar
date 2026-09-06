@@ -141,6 +141,9 @@ export default function ProgramPlayer({
   }
   return (
     <main>
+      <h1 className="sr-only">
+        {program.title} · {program.audience}
+      </h1>
       <header className="app-header">
         <Link className="brand" href="/">
           <span className="brand-mark">
@@ -360,7 +363,7 @@ export default function ProgramPlayer({
           </div>
         </section>
         <aside className="detail">
-          <div className="exercise-head">
+          <div className="exercise-head" aria-live="polite">
             <span className="eyebrow">
               ØVELSE {String(index + 1).padStart(2, '0')} / {rows.length} ·{' '}
               {row.gaitLabel}
@@ -385,20 +388,6 @@ export default function ProgramPlayer({
               </div>
             )}
             <p className="schematic">{row.note}</p>
-          </div>
-          <div className="step-nav">
-            <button
-              disabled={suspended || index === 0}
-              onClick={() => choose(index - 1)}
-            >
-              <ArrowLeft size={18} /> Forrige
-            </button>
-            <button
-              disabled={suspended || index === rows.length - 1}
-              onClick={() => choose(index + 1)}
-            >
-              Næste øvelse <ArrowRight size={18} />
-            </button>
           </div>
           <div className="next-preview">
             {index < rows.length - 1 ? (
