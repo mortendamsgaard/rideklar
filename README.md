@@ -69,15 +69,72 @@ converting a DRF protocol into a program file.
 
 ## Deployment
 
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which lints, tests and
-builds, then publishes `dist/client` to GitHub Pages.
+Live at [rideklar.dk](https://rideklar.dk), served by GitHub Pages.
 
-Two files in `public/` matter for that and should not be removed:
+**Nothing that a visitor downloads is committed to this repository.** `dist/` is
+gitignored; the repo holds source and program JSON only. The served bytes are
+built on every push and handed to Pages as a separate artifact.
 
-- `.nojekyll` — without it, GitHub Pages runs Jekyll, which ignores the `_next/`
-  directory and silently serves a page with no JavaScript.
-- `CNAME` — holds the custom domain. Pages resets the domain on every deploy if
-  this file is absent.
+### The pipeline
+
+Pushing to `main` triggers `.github/workflows/deploy.yml`:
+
+1. **Build job** on a clean runner: `npm ci` → `npm run lint` → `npm test` →
+   `npm run build`. The `prebuild` hook validates all 28 program files first, so
+   malformed data fails here instead of shipping.
+2. **`actions/upload-pages-artifact`** tars `dist/client` (~390 KB) and uploads
+   it. The artifact expires after a day — it is a hand-off between jobs, not
+   where the site lives.
+3. **Deploy job** runs `actions/deploy-pages`, which authenticates to the Pages
+   API with an OIDC token (hence `id-token: write` in the workflow permissions;
+   no secret is stored) and creates a deployment tied to the commit SHA.
+4. **Pages unpacks the tarball onto its own hosting.** From this point the
+   repository is not involved in serving.
+
+The deploy job declares `needs: build`, so a failing lint, test or program
+validation produces no artifact and the live site stays on the previous
+deployment.
+
+### How it is served
+
+GitHub Pages runs on Fastly. The four apex addresses
+(`185.199.108–111.153`) are anycast — every Pages site shares them, and BGP
+routes each visitor to the nearest edge, so Danish traffic terminates in
+Copenhagen rather than crossing the Atlantic. Most requests are answered from
+the edge cache without reaching GitHub's origin.
+
+HTTPS uses a Let's Encrypt certificate that GitHub provisions and renews
+automatically, covering both `rideklar.dk` and `www.rideklar.dk`. `www`
+redirects to the apex.
+
+Everything is served with `cache-control: max-age=600`, including the
+`_next/static` bundles whose filenames already contain a content hash and are
+therefore immutable. Those could safely be cached for a year, but Pages does not
+support custom cache headers, so repeat visitors re-validate them every ten
+minutes. `ETag` makes that a cheap 304 rather than a re-download.
+
+### Two files in `public/` that must not be removed
+
+- **`.nojekyll`** — without it Pages runs Jekyll, which ignores directories
+  beginning with an underscore. That would hide the entire `_next/` bundle and
+  silently serve a styled page with no JavaScript.
+- **`CNAME`** — contains the custom domain. Note that with the GitHub Actions
+  build type this file does *not* configure the domain; that is set in
+  Settings → Pages (or via the API) and stored server-side. The file is kept
+  because it is required if the build type is ever switched to "deploy from
+  branch".
+
+### DNS
+
+`rideklar.dk` is registered through GoDaddy with DNS hosted there. The apex has
+four `A` records pointing at the Pages addresses above, and `www` is a `CNAME`
+to `mortendamsgaard.github.io`. The domain is verified in GitHub account
+settings, which prevents anyone else from claiming it if it is ever removed
+from this repository.
+
+The domain sends no email, and the mail records say so explicitly: `v=spf1 -all`,
+`v=DMARC1; p=reject;`, and a null `MX` (`0 .`). Adding a mailbox later means
+changing all three.
 
 ## Source data and rights
 
