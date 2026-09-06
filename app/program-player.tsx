@@ -291,19 +291,36 @@ export default function ProgramPlayer({
                   />
                 ),
               )}
+              {/* A pony seen from above, drawn at its real footprint: the arena
+                  is in metres, so this is ~2.5 m nose to rump and 0.84 m across
+                  the barrel. +x is the direction of travel, so the head leads. */}
               <g ref={marker} style={{ color: gaitColors[segments[0].gait] }}>
-                <circle r=".85" fill="currentColor" opacity=".15" />
-                <circle
-                  r=".52"
-                  fill="currentColor"
-                  stroke="white"
-                  strokeWidth=".15"
+                <ellipse rx="1.6" ry=".75" fill="currentColor" opacity=".14" />
+                <path
+                  d="M-1.18 0 C-1.34 .03 -1.48 .08 -1.6 .16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth=".11"
+                  strokeLinecap="round"
                 />
                 <path
-                  d="M.05 -.2 L.35 0 L.05 .2"
-                  fill="none"
+                  d="M1.35 0
+                     C1.33 .09 1.27 .14 1.18 .15
+                     C1.05 .17 .88 .19 .72 .27
+                     C.5 .37 .3 .42 .1 .42
+                     L-.5 .42
+                     C-.85 .42 -1.02 .34 -1.1 .22
+                     C-1.16 .12 -1.18 .06 -1.18 0
+                     C-1.18 -.06 -1.16 -.12 -1.1 -.22
+                     C-1.02 -.34 -.85 -.42 -.5 -.42
+                     L.1 -.42
+                     C.3 -.42 .5 -.37 .72 -.27
+                     C.88 -.19 1.05 -.17 1.18 -.15
+                     C1.27 -.14 1.33 -.09 1.35 0 Z"
+                  fill="currentColor"
                   stroke="white"
-                  strokeWidth=".09"
+                  strokeWidth=".11"
+                  strokeLinejoin="round"
                 />
               </g>
             </svg>
@@ -433,6 +450,9 @@ export default function ProgramPlayer({
           <a href={program.source.url} target="_blank" rel="noreferrer">
             Se protokollen ↗
           </a>
+        </p>
+        <p className="copyright">
+          © {new Date().getFullYear()} Morten Damsgaard
         </p>
       </footer>
     </main>
