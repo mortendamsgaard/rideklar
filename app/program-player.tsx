@@ -328,12 +328,6 @@ export default function ProgramPlayer({
                 <p>{row.tip}</p>
               </div>
             </div>
-            {row.size && (
-              <div className="size-note">
-                <b>{row.size.meters} meter</b>
-                <span>{row.size.description}</span>
-              </div>
-            )}
           </div>
         </aside>
         <div

@@ -339,12 +339,6 @@ header,
   flex: none;
 }
 
-.size-note {
-  margin: 10px 12px 0;
-  font-size: 13px;
-  color: var(--muted);
-}
-
 /* ── Full program list ── */
 .program-heading {
   display: flex;
@@ -515,9 +509,7 @@ footer a {
     display: block;
     overflow: visible;
   }
-
-  .tip,
-  .size-note {
+  .tip {
     margin-left: 0;
     margin-right: 0;
   }
