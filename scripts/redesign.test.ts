@@ -19,3 +19,21 @@ void test('the program picker is a native select with no component library', () 
     'lib/utils.ts should be gone',
   );
 });
+
+void test('no Tailwind or shadcn layer remains', () => {
+  const css = read('app/globals.css');
+  for (const token of ['@import', '@theme', '@apply', '@layer', '@custom-variant']) {
+    assert.doesNotMatch(css, new RegExp(token), `${token} should be gone`);
+  }
+  assert.doesNotMatch(read('app/layout.tsx'), /antialiased/);
+  assert.doesNotMatch(read('vite.config.ts'), /tailwind/i);
+
+  const pkg = JSON.parse(read('package.json'));
+  assert.deepEqual(
+    Object.keys(pkg.dependencies).sort(),
+    ['lucide-react', 'react', 'react-dom', 'react-server-dom-webpack', 'vinext'],
+  );
+  for (const dead of ['tailwindcss', '@tailwindcss/postcss']) {
+    assert.ok(!(dead in pkg.devDependencies), `${dead} should be gone`);
+  }
+});
