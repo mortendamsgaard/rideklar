@@ -425,6 +425,7 @@ header,
   color: var(--muted);
 }
 .program-list {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 2px;
