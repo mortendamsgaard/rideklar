@@ -23,11 +23,16 @@ html {
   --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
   --h-header: 50px;
-  --h-arena: 390px;
-  --h-text: 88px;
+  --h-arena: 364px;
+  /* Worst case measured at 390px across all 547 exercises: eyebrow 18 +
+     h2 margin 4 + two-line title 47 (82 exercises wrap; none reach three)
+     + description margin 6 + two-line clamped description 41. */
+  --h-text: 116px;
   --h-control-row: 44px;
-  --h-gaps: 32px;
-  /* Token arithmetic runs ~8px optimistic against the rendered box model
+  /* The four stacked paddings: .stage 10 + .exercise-head 10 +
+     .controls-primary 10 + .controls-secondary 6. */
+  --h-gaps: 36px;
+  /* Token arithmetic runs optimistic against the rendered box model
      (borders, line-height rounding, the progress fill). Measured, not guessed. */
   --h-render-slack: 10px;
   --vp-target: 664px;
