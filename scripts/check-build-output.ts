@@ -16,4 +16,14 @@ if (missing.length) {
   );
   process.exit(1);
 }
+// These reach the output only by being copied out of public/, and each one is
+// load-bearing: robots.txt steers crawlers, .nojekyll stops Jekyll hiding the
+// _next/ bundle, CNAME is needed if the Pages build type is ever switched. A
+// build-config change could drop them silently.
+for (const asset of ['robots.txt', '.nojekyll', 'CNAME']) {
+  if (!fs.existsSync(`dist/client/${asset}`)) {
+    console.error(`dist/client/${asset} is missing from the build output.`);
+    process.exit(1);
+  }
+}
 console.log(`${path}: default programme prerendered (${html.length} bytes)`);

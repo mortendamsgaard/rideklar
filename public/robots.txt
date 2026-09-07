@@ -1,0 +1,10 @@
+# rideklar.dk — an interactive visualizer for DRF pony dressage programmes.
+# Crawling the site itself is welcome.
+User-agent: *
+Allow: /
+
+# The programme JSON is data the app fetches, not a useful search result: a
+# rider searching for LA4-B wants the page, not the raw file. Excluding it is
+# safe because the default programme is compiled into the build, so the page
+# renders completely without fetching anything from here.
+Disallow: /programs/
