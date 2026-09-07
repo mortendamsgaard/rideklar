@@ -468,6 +468,7 @@ export default function ProgramPlayer({
             Se protokollen ↗
           </a>
         </p>
+        <p className="footer-note">{program.disclaimer}</p>
         <p className="copyright">
           © {__DEPLOY_YEAR__} Morten Damsgaard{' · '}
           <a href="mailto:morten.damsgaard@live.com">
