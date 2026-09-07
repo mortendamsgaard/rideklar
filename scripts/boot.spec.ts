@@ -22,7 +22,7 @@ const TYPES: Record<string, string> = {
 // Serves the real build. With `staleFirstLoad`, the first document is served
 // with its JS chunks 404ing — which is precisely what a browser holding a
 // cached index.html sees after a deploy has replaced every hashed chunk.
-function serve(staleFirstLoad = false, injectTag = '') {
+function serve(staleFirstLoad = false) {
   let documents = 0;
   let killing = staleFirstLoad;
   const server = http.createServer((req, res) => {
@@ -37,15 +37,6 @@ function serve(staleFirstLoad = false, injectTag = '') {
     if (!file.startsWith(ROOT) || !fs.existsSync(file)) {
       res.writeHead(404);
       return res.end('not found');
-    }
-    // A third-party tag has to be parsed as part of the document to reproduce
-    // the real case; appending one from script runs too late to be equivalent.
-    if (route === '/index.html' && injectTag) {
-      const html = fs
-        .readFileSync(file, 'utf8')
-        .replace('</body>', `${injectTag}</body>`);
-      res.writeHead(200, { 'content-type': TYPES['.html'] });
-      return res.end(html);
     }
     res.writeHead(200, {
       'content-type': TYPES[path.extname(file)] ?? 'application/octet-stream',
@@ -113,15 +104,20 @@ test('a stale page whose chunks have been deleted heals itself', async ({
 test('a blocked third-party script must not trigger the guard', async ({
   page,
 }) => {
-  const site = await serve(
-    false,
-    '<script async src="https://gc.zgo.at/count.js"></script>',
-  );
+  const site = await serve();
   try {
-    await page.route('**gc.zgo.at/**', (r) =>
-      r.fulfill({ status: 404, body: '', contentType: 'text/plain' }),
-    );
+    let blocked = 0;
+    await page.route('**gc.zgo.at/**', (r) => {
+      blocked++;
+      return r.fulfill({ status: 404, body: '', contentType: 'text/plain' });
+    });
     await page.goto(site.url);
+    // Without this the test goes quiet the moment the tag is removed: nothing
+    // would be requested, nothing would fail, and it would pass for free.
+    expect(
+      blocked,
+      'the analytics tag must actually be loading',
+    ).toBeGreaterThan(0);
     await expect(page.locator('html')).toHaveAttribute('data-booted', '1');
     // The guard's own flag is the only reliable signal that it decided to
     // heal. The URL is not: page.tsx strips the cache-busting query on a

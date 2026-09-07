@@ -49,6 +49,18 @@ export default function RootLayout({
     <html lang="da">
       <body className={fraunces.variable}>
         <script dangerouslySetInnerHTML={{ __html: BOOT_GUARD }} />
+        {/*
+          Visit counts only. GoatCounter is cookieless and stores no personal
+          data, which is what keeps a consent banner off a site used by
+          children. Explicit https rather than GoatCounter's own
+          protocol-relative snippet, and async so it can never sit in front of
+          the boot path.
+        */}
+        <script
+          data-goatcounter="https://rideklar.goatcounter.com/count"
+          async
+          src="https://gc.zgo.at/count.js"
+        />
         {children}
       </body>
     </html>
