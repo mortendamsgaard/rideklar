@@ -35,6 +35,12 @@ jobs:
       - run: npm test
       - run: npm run build
 
+      # The boot path is only observable in a real browser: whether the shipped
+      # HTML carries a readable programme, and whether a stale page whose
+      # chunks have been deleted recovers. Runs against the build above.
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/client

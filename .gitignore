@@ -39,3 +39,8 @@ next-env.d.ts
 # TypeScript incremental build cache
 *.tsbuildinfo
 .superpowers/
+
+# Playwright
+/test-results
+/playwright-report
+/.playwright

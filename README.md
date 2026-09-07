@@ -30,16 +30,36 @@ npm run build    # static export to dist/client
 npm start        # serve the build locally
 ```
 
+## Surviving a failed boot
+
+The default program is imported into the build rather than fetched, so the
+static HTML already contains the arena and the exercise text. This is
+deliberate: a rider whose JavaScript never runs — a blocked script, an old
+browser, a cached page from a previous deploy asking for chunks that no longer
+exist — still gets a readable program instead of a loading message. It also
+means the common case makes no network requests at all.
+
+A classic (non-module) inline script in `app/layout.tsx` backs that up. If a
+module fails to load or hydration never happens, it reloads once per tab with a
+cache-busting query, which fetches fresh HTML naming the chunks that actually
+exist. It cannot be a module itself: a module would die with the very graph it
+exists to rescue.
+
+`lib/program.ts` gives every request a deadline, because a connection that
+hangs rather than fails would otherwise never settle and never report an error.
+
 ## Checks
 
 ```
 npm run lint              # oxlint, clean across the repo
-npm test                  # 45 tests
+npm test                  # 53 tests
 npm run validate:programs # schema + geometry validation of every program
+npm run test:browser      # Playwright: the boot path, against a real build
 ```
 
 `npm run build` runs `validate:programs` first via its `prebuild` hook, so a
-malformed program file fails the build instead of shipping.
+malformed program file fails the build instead of shipping, and its `postbuild`
+hook asserts the emitted HTML actually carries a programme.
 
 Tests cover catalog and JSON validation, every route join, sampled arena bounds,
 lateral-movement placement, pony circle diameters, timing, halts, invalid files
@@ -86,8 +106,9 @@ built on every push and handed to Pages as a separate artifact.
 Pushing to `main` triggers `.github/workflows/deploy.yml`:
 
 1. **Build job** on a clean runner: `npm ci` → `npm run lint` → `npm test` →
-   `npm run build`. The `prebuild` hook validates all 28 program files first, so
-   malformed data fails here instead of shipping.
+   `npm run build` → `npm run test:browser`. The `prebuild` hook validates all
+   28 program files first, so malformed data fails here instead of shipping, and
+   the browser tests run against the build that is about to be uploaded.
 2. **`actions/upload-pages-artifact`** tars `dist/client` (~390 KB) and uploads
    it. The artifact expires after a day — it is a hand-off between jobs, not
    where the site lives.
