@@ -457,20 +457,24 @@ export default function ProgramPlayer({
           {program.title} · {program.audience} · {rows.length} øvelser ·{' '}
           <span className="verified">
             <Check size={13} /> {program.source.badge}
-          </span>
-        </p>
-        <p>{program.disclaimer}</p>
-        <p>
-          {program.source.note}{' '}
-          <a href={program.source.url} target="_blank" rel="noreferrer">
+          </span>{' '}
+          ·{' '}
+          <a
+            className="protocol-link"
+            href={program.source.url}
+            target="_blank"
+            rel="noreferrer"
+          >
             Se protokollen ↗
           </a>
         </p>
         <p className="copyright">
-          © {new Date().getFullYear()} Morten Damsgaard{' · '}
+          © {__DEPLOY_YEAR__} Morten Damsgaard{' · '}
           <a href="mailto:morten.damsgaard@live.com">
             morten.damsgaard@live.com
           </a>
+          {' · '}
+          <span className="deployed">Opdateret {__DEPLOYED_AT__}</span>
         </p>
       </footer>
     </main>

@@ -418,6 +418,7 @@ footer {
   color: var(--muted);
   font-size: 12px;
   line-height: 1.6;
+  text-align: center;
 }
 footer p {
   margin: 2px;
@@ -432,16 +433,19 @@ footer a {
   color: var(--muted);
 }
 .footer-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
+  margin-inline: auto;
+  max-width: 34rem;
 }
 .verified {
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  vertical-align: -2px;
   color: var(--leather);
+}
+.deployed,
+.protocol-link {
+  white-space: nowrap;
 }
 
 /* ── Loading / error status toast ── */
