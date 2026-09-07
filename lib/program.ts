@@ -220,11 +220,47 @@ export function parseProgram(input: unknown): Program {
   });
   return input as Program;
 }
+// A stored id for a programme that was later renamed or removed must fall back
+// to the catalogue default rather than surfacing an error. Kept here, free of
+// React, so the fallback can be tested directly instead of grepped for.
+export function resolveStoredProgram(stored: string, catalog: Catalog): string {
+  return catalog.programs.some((p) => p.id === stored)
+    ? stored
+    : catalog.defaultId;
+}
+// A connection that hangs rather than fails never settles the fetch, so
+// without a deadline the caller's catch never runs and the rider is left
+// looking at a loading message forever. The timeout aborts an *internal*
+// controller: callers use `signal.aborted` to decide whether a rejection is
+// worth reporting, so aborting their own signal would make the timeout
+// invisible to exactly the code that needs to see it.
 export async function loadJson(
   url: string,
   signal: AbortSignal,
+  timeoutMs = 8000,
 ): Promise<unknown> {
-  const response = await fetch(url, { signal, cache: 'no-cache' });
-  if (!response.ok) throw Error(`Filen kunne ikke hentes (${response.status})`);
-  return response.json();
+  const internal = new AbortController();
+  const relay = () => internal.abort();
+  if (signal.aborted) internal.abort();
+  else signal.addEventListener('abort', relay, { once: true });
+  let timedOut = false;
+  const timer = setTimeout(() => {
+    timedOut = true;
+    internal.abort();
+  }, timeoutMs);
+  try {
+    const response = await fetch(url, { signal: internal.signal });
+    if (!response.ok)
+      throw Error(`Filen kunne ikke hentes (${response.status})`);
+    // Awaited inside the try so a stall part-way through the body is treated
+    // as a timeout too, not just a stall before the headers arrive.
+    return await response.json();
+  } catch (e) {
+    if (timedOut)
+      throw Error('Forbindelsen svarede ikke – tjek din internetforbindelse');
+    throw e;
+  } finally {
+    clearTimeout(timer);
+    signal.removeEventListener('abort', relay);
+  }
 }

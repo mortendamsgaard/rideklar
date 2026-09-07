@@ -233,18 +233,34 @@ void test('invalid data fails explicitly', () => {
 });
 void test('loading preserves cancellation and reports failed requests', async () => {
   const original = globalThis.fetch;
-  const controller = new AbortController();
   try {
-    globalThis.fetch = async (_url, options) => {
-      assert.equal(options!.signal, controller.signal);
-      return new Response('missing', { status: 404 });
-    };
+    // A non-OK response is reported with its status.
+    globalThis.fetch = async () => new Response('missing', { status: 404 });
     await assert.rejects(
-      loadJson('/programs/missing.json', controller.signal),
+      loadJson('/programs/missing.json', new AbortController().signal),
       /404/,
     );
+    // Malformed JSON rejects rather than resolving with junk.
     globalThis.fetch = async () => new Response('{broken');
-    await assert.rejects(loadJson('/programs/broken.json', controller.signal));
+    await assert.rejects(
+      loadJson('/programs/broken.json', new AbortController().signal),
+    );
+    // loadJson wraps the caller's signal so it can attach its own deadline, so
+    // the signal reaching fetch is deliberately not the caller's own object.
+    // What matters is that the caller's cancellation still reaches it.
+    const controller = new AbortController();
+    globalThis.fetch = async (_url, options) => {
+      const signal = options!.signal!;
+      assert.equal(signal.aborted, false, 'fetch must start un-aborted');
+      controller.abort();
+      assert.equal(
+        signal.aborted,
+        true,
+        "the caller's cancellation must reach fetch",
+      );
+      return new Response('{}');
+    };
+    await loadJson('/programs/ok.json', controller.signal);
   } finally {
     globalThis.fetch = original;
   }

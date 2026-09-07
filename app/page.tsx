@@ -1,7 +1,8 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
-import { loadJson, parseCatalog, parseProgram } from '@/lib/program';
-import type { Catalog, Program } from '@/lib/program';
+import { useEffect, useState } from 'react';
+import { loadJson, parseProgram, resolveStoredProgram } from '@/lib/program';
+import type { Program } from '@/lib/program';
+import { bundledCatalog, bundledDefault } from '@/lib/bundled-program';
 import ProgramPlayer from './program-player';
 // The last programme a rider chose, so a return visit resumes where they left
 // off. Every access is guarded: localStorage throws outright in some contexts
@@ -23,49 +24,57 @@ function storeProgram(id: string) {
   }
 }
 export default function Home() {
-  const [catalog, setCatalog] = useState<Catalog | null>(null),
-    [program, setProgram] = useState<Program | null>(null),
-    [selected, setSelected] = useState(''),
+  // The default programme is part of the build, so the first render already
+  // holds real data and needs no request at all. Only switching to another
+  // programme touches the network.
+  const [fetched, setFetched] = useState<Program | null>(null),
+    [selected, setSelected] = useState(bundledCatalog.defaultId),
     [error, setError] = useState(''),
-    [loading, setLoading] = useState(true),
+    [loading, setLoading] = useState(false),
     [retry, setRetry] = useState(0),
     [revision, setRevision] = useState(0);
-  const request = useRef<AbortController | null>(null);
+  const entry = bundledCatalog.programs.find((p) => p.id === selected);
+  // Derived rather than stored, so returning to the default programme needs no
+  // state update at all, and an unknown selection can never leave the loading
+  // overlay up with nothing behind it.
+  const program =
+    selected === bundledDefault.id
+      ? bundledDefault
+      : (fetched ?? bundledDefault);
+  const shown = error || (entry ? '' : 'Programmet findes ikke i kataloget');
+  const busy = loading && !shown;
   useEffect(() => {
-    const controller = new AbortController();
-    request.current = controller;
-    loadJson('/programs/index.json', controller.signal)
-      .then(parseCatalog)
-      .then((c) => {
-        if (controller.signal.aborted) return;
-        setCatalog(c);
-        setSelected((previous) => {
-          const wanted = previous || readStoredProgram();
-          return c.programs.some((p) => p.id === wanted) ? wanted : c.defaultId;
-        });
-      })
-      .catch((e) => {
-        if (!controller.signal.aborted) {
-          setError(String(e.message));
-          setLoading(false);
-        }
-      });
-    return () => controller.abort();
-  }, [retry]);
+    // Tell the layout's boot guard that hydration succeeded, and clean up the
+    // cache-busting query it adds when it has to recover a stale page.
+    document.documentElement.setAttribute('data-booted', '1');
+    if (location.search) history.replaceState({}, '', location.pathname);
+    // Restoring the remembered programme has to happen here rather than in a
+    // state initialiser: reading localStorage during render would make the
+    // client's first render disagree with the prerendered HTML.
+    const wanted = resolveStoredProgram(readStoredProgram(), bundledCatalog);
+    // Syncing React to an external store (localStorage) after mount is the one
+    // case the react-compiler rule's own guidance allows, and it cannot move
+    // into render: reading storage during render is precisely what would break
+    // hydration. useSyncExternalStore would silence the warning but leaves no
+    // way to persist a selection when storage throws, which would break
+    // programme switching in private browsing.
+    // oxlint-disable-next-line react/react-compiler
+    if (wanted !== bundledCatalog.defaultId) setSelected(wanted);
+  }, []);
   useEffect(() => {
-    if (!catalog || !selected) return;
+    // The default ships with the build, and an unknown id is already reported
+    // through `shown` above — neither needs a request.
+    if (selected === bundledDefault.id) return;
+    const target = bundledCatalog.programs.find((p) => p.id === selected);
+    if (!target) return;
     const controller = new AbortController();
-    request.current?.abort();
-    request.current = controller;
-    const entry = catalog.programs.find((p) => p.id === selected);
-    if (!entry) return;
-    loadJson(entry.file, controller.signal)
+    loadJson(target.file, controller.signal)
       .then(parseProgram)
       .then((p) => {
-        if (p.id !== entry.id)
+        if (p.id !== target.id)
           throw Error('Programfilens id passer ikke til kataloget');
         if (!controller.signal.aborted) {
-          setProgram(p);
+          setFetched(p);
           setRevision((n) => n + 1);
           setLoading(false);
         }
@@ -77,73 +86,46 @@ export default function Home() {
         }
       });
     return () => controller.abort();
-  }, [catalog, selected]);
-  const selector = catalog ? (
+  }, [selected, retry]);
+  const selector = (
     <select
       className="program-select"
       aria-label="Vælg rideprogram"
       value={selected}
-      disabled={loading}
+      disabled={busy}
       onChange={(event) => {
         const value = event.target.value;
         if (value && value !== selected) {
-          request.current?.abort();
-          setLoading(true);
           setError('');
+          // Returning to the bundled default is instant, so it never shows a
+          // loading state.
+          setLoading(value !== bundledDefault.id);
           setSelected(value);
           storeProgram(value);
         }
       }}
     >
-      {catalog.programs.map((p) => (
+      {bundledCatalog.programs.map((p) => (
         <option key={p.id} value={p.id}>
           {p.label}
         </option>
       ))}
     </select>
-  ) : null;
-  if (!program)
-    return (
-      <main>
-        <header>
-          <span className="brand">rideklar.</span>
-          {selector}
-        </header>
-        <section className="heading">
-          <div role={error ? 'alert' : 'status'}>
-            {error
-              ? `Programmet kunne ikke indlæses: ${error}`
-              : 'Indlæser rideprogram…'}
-            {error && (
-              <button
-                className="primary"
-                onClick={() => {
-                  setLoading(true);
-                  setError('');
-                  setRetry((n) => n + 1);
-                }}
-              >
-                Prøv igen
-              </button>
-            )}
-          </div>
-        </section>
-      </main>
-    );
+  );
   return (
     <>
       <ProgramPlayer
         key={`${program.id}-${revision}`}
         program={program}
         selector={selector}
-        suspended={loading || !!error}
+        suspended={busy || !!shown}
       />
-      {(loading || error) && (
-        <div className="load-status" role={error ? 'alert' : 'status'}>
-          {error
-            ? `Programmet kunne ikke indlæses: ${error}`
+      {(busy || shown) && (
+        <div className="load-status" role={shown ? 'alert' : 'status'}>
+          {shown
+            ? `Programmet kunne ikke indlæses: ${shown}`
             : 'Indlæser rideprogram…'}
-          {error && (
+          {shown && (
             <button
               onClick={() => {
                 setLoading(true);

@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { markerAngle } from '../app/ride-style.ts';
+import { parseCatalog, resolveStoredProgram } from '../lib/program.ts';
 
 const read = (p: string) =>
   fs.readFileSync(new URL(`../${p}`, import.meta.url), 'utf8');
@@ -185,12 +186,33 @@ void test('the remembered programme is guarded and validated', () => {
     assert.match(body, /try \{/, `${fn} must guard localStorage access`);
     assert.match(body, /catch/, `${fn} must swallow storage failures`);
   }
-  // A stored id for a programme that was later renamed or removed must fall
-  // back to the catalogue default, not surface an error.
+  // The stored id must be validated against the catalogue before use. Tested
+  // through the real function rather than grepped for, so renaming a local
+  // variable cannot break it and deleting the guard cannot pass it.
+  const catalog = parseCatalog(
+    JSON.parse(read('public/programs/index.json')) as unknown,
+  );
+  const known = catalog.programs[3].id;
+  assert.equal(
+    resolveStoredProgram(known, catalog),
+    known,
+    'a known id is kept',
+  );
+  assert.equal(
+    resolveStoredProgram('la9-z-pony', catalog),
+    catalog.defaultId,
+    'a removed programme falls back to the default',
+  );
+  assert.equal(
+    resolveStoredProgram('', catalog),
+    catalog.defaultId,
+    'an empty stored value falls back to the default',
+  );
+  // And the page must actually route the stored value through that guard.
   assert.match(
     page,
-    /readStoredProgram\(\)[^]*?c\.programs\.some[^]*?c\.defaultId/,
-    'the stored id must be validated against the catalogue before use',
+    /resolveStoredProgram\(readStoredProgram\(\)/,
+    'the stored id must pass through resolveStoredProgram before use',
   );
 });
 

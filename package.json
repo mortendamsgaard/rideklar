@@ -13,7 +13,8 @@
     "format": "oxfmt",
     "validate:programs": "node --experimental-strip-types scripts/validate-programs.ts",
     "test": "node --experimental-strip-types --test scripts/*.test.ts",
-    "prebuild": "npm run validate:programs"
+    "prebuild": "npm run validate:programs",
+    "postbuild": "node --experimental-strip-types scripts/check-build-output.ts"
   },
   "dependencies": {
     "react": "19.2.6",
