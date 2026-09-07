@@ -3,7 +3,9 @@ export const gaitColors = {
   skridt: '#25813b',
   trav: '#2365c7',
   galop: '#c63838',
-  neutral: '#62717c',
+  // Parade/tilbage is not a gait but the absence of one, and the old slate grey
+  // sat only 14 ΔE2000 from trav's blue — the tightest pair in the palette.
+  neutral: '#ffcc00',
 } as const;
 // Travers previously fell through to `undefined`, drawing it identically to an
 // ordinary segment. Round caps turn the near-zero dash into a dot.

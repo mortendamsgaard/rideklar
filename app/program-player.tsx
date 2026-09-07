@@ -268,9 +268,9 @@ export default function ProgramPlayer({
                     y={y}
                     textAnchor="middle"
                     dominantBaseline="middle"
-                    fontSize={interior ? '.85' : '1.1'}
-                    fill={interior ? '#8a6c3e' : '#7a5a30'}
-                    fontWeight="600"
+                    fontSize={interior ? '1' : '1.25'}
+                    fill={interior ? '#6a4a24' : '#5c360d'}
+                    fontWeight="700"
                   >
                     {l}
                   </text>

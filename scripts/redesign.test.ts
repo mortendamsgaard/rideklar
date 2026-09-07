@@ -80,7 +80,9 @@ void test('stable-warmth palette and display font are defined', () => {
 
 void test('route colours are untouched', () => {
   const style = read('app/ride-style.ts');
-  for (const hex of ['#25813b', '#2365c7', '#c63838', '#62717c']) {
+  // The three gait colours are the canary; parade/tilbage was deliberately
+  // moved off the slate grey that was too close to trav's blue.
+  for (const hex of ['#25813b', '#2365c7', '#c63838', '#ffcc00']) {
     assert.match(style, new RegExp(hex, 'i'), `${hex} must remain`);
   }
 });

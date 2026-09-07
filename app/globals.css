@@ -218,6 +218,10 @@ header,
   border-radius: 4px;
   display: inline-block;
   flex: none;
+  /* Inset so the box stays 13px. A pale swatch has almost no luminance
+     contrast against the surface and would read as a shapeless smudge
+     without an edge; the dark swatches are unaffected by it. */
+  box-shadow: inset 0 0 0 1px rgb(58 44 29 / 22%);
 }
 .movement-key svg {
   width: 32px;
