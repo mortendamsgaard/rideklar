@@ -151,18 +151,6 @@ minutes. `ETag` makes that a cheap 304 rather than a re-download.
   because it is required if the build type is ever switched to "deploy from
   branch".
 
-### DNS
-
-`rideklar.dk` is registered through GoDaddy with DNS hosted there. The apex has
-four `A` records pointing at the Pages addresses above, and `www` is a `CNAME`
-to `mortendamsgaard.github.io`. The domain is verified in GitHub account
-settings, which prevents anyone else from claiming it if it is ever removed
-from this repository.
-
-The domain sends no email, and the mail records say so explicitly: `v=spf1 -all`,
-`v=DMARC1; p=reject;`, and a null `MX` (`0 .`). Adding a mailbox later means
-changing all three.
-
 ## Source data and rights
 
 The program routes are **authored interpretations** of the written DRF protocols,
