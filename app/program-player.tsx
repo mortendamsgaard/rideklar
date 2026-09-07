@@ -176,6 +176,23 @@ export default function ProgramPlayer({
           {selector}
         </div>
       </header>
+      {/*
+        Rendered only when scripting is off, so it cannot affect anyone else.
+        Everything below still reads correctly without JavaScript — the arena,
+        the first exercise and the whole programme list are in the static HTML
+        — but playback and switching programme need it, and until now nothing
+        said so: the controls simply did not respond.
+      */}
+      <noscript>
+        <div className="noscript-note">
+          <strong>Slå JavaScript til for at bruge siden</strong>
+          <p>
+            Programmet vises herunder, men afspilning og valg af program kræver
+            JavaScript. På iPhone: Indstillinger → Safari → Avanceret →
+            JavaScript.
+          </p>
+        </div>
+      </noscript>
       <div className="workspace">
         <div className="exercise-head" aria-live="polite">
           <span className="eyebrow">

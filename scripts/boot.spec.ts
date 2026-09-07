@@ -59,6 +59,9 @@ test('the built page hydrates and steps between exercises', async ({
   try {
     await page.goto(site.url);
     await expect(page.locator('html')).toHaveAttribute('data-booted', '1');
+    // The no-JavaScript notice must never reach a scripted render — that is
+    // the only way this could do harm.
+    await expect(page.locator('.noscript-note')).toHaveCount(0);
     const first = await page.locator('.exercise-head h2').innerText();
     await page.getByLabel('Næste øvelse').click();
     await expect(page.locator('.exercise-head h2')).not.toHaveText(first);
@@ -151,6 +154,10 @@ test.describe('without JavaScript', () => {
       );
       await expect(page.locator('.arena')).toBeVisible();
       await expect(page.getByText('Indlæser rideprogram')).toHaveCount(0);
+      // Until now nothing explained why the controls did not respond.
+      const note = page.locator('.noscript-note');
+      await expect(note).toBeVisible();
+      await expect(note).toContainText('JavaScript');
     } finally {
       site.close();
     }

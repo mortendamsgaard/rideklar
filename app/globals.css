@@ -453,6 +453,31 @@ footer a {
   white-space: nowrap;
 }
 
+/* ── No-JavaScript notice ── */
+/* Styled as an ordinary class rather than a <style> inside the <noscript>:
+   React hoists style elements, and one lifted out of a <noscript> would apply
+   to every visitor. Inert when scripting is on, since the element is never
+   rendered then. */
+.noscript-note {
+  margin: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--tip-bg);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.noscript-note strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--leather-dark);
+}
+.noscript-note p {
+  margin: 0;
+  color: var(--muted);
+}
+
 /* ── Loading / error status toast ── */
 .load-status {
   position: fixed;
