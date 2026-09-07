@@ -23,6 +23,11 @@ export const metadata: Metadata = {
 // purpose: a module would die with the very graph it exists to rescue. It
 // reloads once per tab with a cache-busting query, which fetches fresh HTML
 // naming the chunks that actually exist.
+//
+// The error filter is deliberately limited to /_next/static/: a dead app
+// bundle is the only failure a reload can fix. Third-party scripts are blocked
+// by ad blockers as a matter of course, and healing on those would reload the
+// page for a large share of visitors who have nothing wrong with them.
 const BOOT_GUARD = `(function(){
 var K='rideklar:reloaded';
 function heal(){
@@ -31,7 +36,7 @@ catch(e){return}
 location.replace(location.pathname+'?v='+Date.now())}
 addEventListener('error',function(e){
 var t=e.target;
-if(t&&t.tagName==='SCRIPT')heal()},true);
+if(t&&t.tagName==='SCRIPT'&&(t.src||'').indexOf('/_next/static/')>-1)heal()},true);
 setTimeout(function(){
 if(!document.documentElement.hasAttribute('data-booted'))heal()},8000)})()`;
 
